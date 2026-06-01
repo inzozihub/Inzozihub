@@ -6,25 +6,24 @@
   <title>InzoziHub</title>
   <link rel="icon" href="image1.WEBP">
   <style>
- <head>
     /* ========== GLOBAL DESIGN SYSTEM ========== */
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-}
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
     :root {
       --bg-deep: #05070f;
@@ -39,15 +38,15 @@ img {
     }
 
     body {
-  background: radial-gradient(circle at 20% 30%, #0c1122, var(--bg-deep));
-  color: var(--text-white);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  line-height: 1.5;
-  scroll-behavior: smooth;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-   }
+      background: radial-gradient(circle at 20% 30%, #0c1122, var(--bg-deep));
+      color: var(--text-white);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
     /* ========== STICKY HEADER ========== */
     .glass-header {
@@ -144,11 +143,152 @@ img {
       font-size: 1.05rem;
     }
 
+    /* ========== LAYOUT WITH SIDEBAR ========== */
+    .main-layout {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* LEFT SIDE - Your original content */
+    .left-content {
+      flex-shrink: 0;
+      width: 900px;
+      max-width: 100%;
+    }
+
+    /* RIGHT SIDEBAR - Small additional info */
+    .right-sidebar {
+      width: 280px;
+      flex-shrink: 0;
+    }
+
+    /* Sidebar Cards */
+    .sidebar-card {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #2a344d;
+    }
+
+    .sidebar-card h4 {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      color: #38bdf8;
+      border-left: 3px solid #38bdf8;
+      padding-left: 8px;
+    }
+
+    .mini-review {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #2a344d;
+    }
+
+    .mini-review span {
+      color: #facc15;
+      font-size: 0.7rem;
+    }
+
+    .mini-review p {
+      font-size: 0.75rem;
+      margin: 4px 0;
+      color: #b9c3db;
+    }
+
+    .mini-review small {
+      font-size: 0.6rem;
+      color: #6a7894;
+    }
+
+    .offer {
+      text-align: center;
+    }
+
+    .badge {
+      background: #facc15;
+      color: #000;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.6rem;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .offer code {
+      background: #000;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    .sidebar-card input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #2a344d;
+      background: #0a0f1c;
+      color: white;
+      font-size: 0.7rem;
+      margin: 8px 0;
+    }
+
+    .sidebar-card button {
+      width: 100%;
+      padding: 8px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      color: #b9c3db;
+      text-decoration: none;
+      font-size: 0.7rem;
+      padding: 5px 8px;
+      background: #1e293b;
+      border-radius: 20px;
+    }
+
+    .sidebar-card ul {
+      list-style: none;
+    }
+
+    .sidebar-card li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-card a {
+      color: #b9c3db;
+      text-decoration: none;
+      font-size: 0.75rem;
+    }
+
+    .sidebar-card a:hover {
+      color: #38bdf8;
+    }
+
     /* ========== MAIN CONTAINER - VERTICAL SINGLE COLUMN ========== */
     .vertical-column {
       max-width: 900px;
       margin: 0 auto;
-      padding: 1.5rem 2rem 2rem;
+      padding: 1.5rem 0 2rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
@@ -420,33 +560,42 @@ img {
       object-fit: contain;
       background: #05070f;
     }
+
+    /* Mobile Responsive */
+    @media (max-width: 1200px) {
+      .main-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+      .right-sidebar {
+        width: 100%;
+        max-width: 900px;
+      }
+      .sidebar-card {
+        display: inline-block;
+        width: calc(33% - 14px);
+        margin-right: 20px;
+        vertical-align: top;
+      }
+      .sidebar-card:last-child {
+        margin-right: 0;
+      }
+    }
+
     @media (max-width: 700px) {
       .hero-section h1 { font-size: 2.2rem; }
       .brand-text { font-size: 1.1rem; }
       .section-title { font-size: 1.5rem; }
-      .vertical-column { padding: 1rem; }
+      .vertical-column { padding: 1rem 0; }
       .card-content h3 { font-size: 1.2rem; }
       .glass-header { padding: 0.8rem 1rem; }
       .nav-links { gap: 1rem; }
       .slideshow-container { height: 200px; }
+      .sidebar-card {
+        width: 100%;
+        margin-right: 0;
+      }
     }
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
   </style>
 </head>
 <body>
@@ -462,7 +611,6 @@ img {
     <a href="#footer">Contact</a>
   </div>
 </header>
-</header>
 
 <!-- HERO -->
 <div class="hero-section">
@@ -471,93 +619,156 @@ img {
   <p>Digital ecosystem — technology, fashion, commerce & entertainment. Swipe through visuals, one column.</p>
 </div>
 
-<!-- MAIN VERTICAL COLUMN -->
-<div class="vertical-column" id="tech">
-  <div class="section-title">⚡ Inzozi Tech</div>
-
-   <!-- Graphic Design Card with slideshow -->
-  <div class="service-card" data-card="graphic">
-    <div class="slideshow-container" id="slideshow-graphic">
-      <img class="slide-img" src="https://placehold.co/900x500/2d3748/ffffff?text=Graphic+Design+%E2%80%A2+Visual+Identity" alt="slide 1">
-      <button class="slide-btn prev-btn">‹</button>
-      <button class="slide-btn next-btn">›</button>
-      <div class="slide-dots"></div>
-    </div>
-    <div class="card-content">
-      <h3>🎨 Graphic Design</h3>
-      <p>Brand assets, social visuals, pitch decks, and high-impact digital art that tells your story with creativity.</p>
-    </div>
-  </div>
-
-  <!-- Logo Design Card with slideshow -->
-  <div class="service-card" data-card="logo">
-    <div class="slideshow-container" id="slideshow-logo">
-      <img class="slide-img" src="https://placehold.co/900x500/111827/facc15?text=Logo+Design+%E2%80%A2+Iconic+Marks" alt="slide 1">
-      <button class="slide-btn prev-btn">‹</button>
-      <button class="slide-btn next-btn">›</button>
-      <div class="slide-dots"></div>
-    </div>
-    <div class="card-content">
-      <h3>✨ Logo Design</h3>
-      <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands.</p>
-    </div>
-  </div>
-
-  <!-- Clothing Branding Card with slideshow -->
-  <div class="service-card" data-card="clothing">
-    <div class="slideshow-container" id="slideshow-clothing">
-      <img class="slide-img" src="https://placehold.co/900x500/1b2a3a/38bdf8?text=Clothing+Branding+%E2%80%A2+Streetwear" alt="slide 1">
-      <button class="slide-btn prev-btn">‹</button>
-      <button class="slide-btn next-btn">›</button>
-      <div class="slide-dots"></div>
-    </div>
-    <div class="card-content">
-      <h3>👕 Clothing Branding</h3>
-      <p>Streetwear, luxury tags, label design, and packaging solutions that define fashion identities.</p>
-    </div>
-  </div>
+<!-- MAIN LAYOUT WITH SIDEBAR -->
+<div class="main-layout">
   
-  <!-- Web Dev Card with slideshow -->
-  <div class="service-card" data-card="web">
-    <div class="slideshow-container" id="slideshow-web">
-      <img class="slide-img" src="https://placehold.co/900x500/111827/38bdf8?text=Web+Development+%E2%80%A2+Modern+Responsive" alt="slide 1">
-      <button class="slide-btn prev-btn" aria-label="Previous">‹</button>
-      <button class="slide-btn next-btn" aria-label="Next">›</button>
-      <div class="slide-dots"></div>
-    </div>
-    <div class="card-content">
-      <h3>🌐 Web Development</h3>
-      <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability in mind. Tailored for brands that demand performance.</p>
+  <!-- LEFT SIDE - YOUR ORIGINAL CONTENT (COMPLETELY UNCHANGED) -->
+  <div class="left-content">
+    <div class="vertical-column" id="tech">
+      <div class="section-title">⚡ Inzozi Tech</div>
+
+      <!-- Graphic Design Card -->
+      <div class="service-card" data-card="graphic">
+        <div class="slideshow-container" id="slideshow-graphic">
+          <img class="slide-img" src="https://placehold.co/900x500/2d3748/ffffff?text=Graphic+Design+%E2%80%A2+Visual+Identity" alt="slide 1">
+          <button class="slide-btn prev-btn">‹</button>
+          <button class="slide-btn next-btn">›</button>
+          <div class="slide-dots"></div>
+        </div>
+        <div class="card-content">
+          <h3>🎨 Graphic Design</h3>
+          <p>Brand assets, social visuals, pitch decks, and high-impact digital art that tells your story with creativity.</p>
+        </div>
+      </div>
+
+      <!-- Logo Design Card -->
+      <div class="service-card" data-card="logo">
+        <div class="slideshow-container" id="slideshow-logo">
+          <img class="slide-img" src="https://placehold.co/900x500/111827/facc15?text=Logo+Design+%E2%80%A2+Iconic+Marks" alt="slide 1">
+          <button class="slide-btn prev-btn">‹</button>
+          <button class="slide-btn next-btn">›</button>
+          <div class="slide-dots"></div>
+        </div>
+        <div class="card-content">
+          <h3>✨ Logo Design</h3>
+          <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands.</p>
+        </div>
+      </div>
+
+      <!-- Clothing Branding Card -->
+      <div class="service-card" data-card="clothing">
+        <div class="slideshow-container" id="slideshow-clothing">
+          <img class="slide-img" src="https://placehold.co/900x500/1b2a3a/38bdf8?text=Clothing+Branding+%E2%80%A2+Streetwear" alt="slide 1">
+          <button class="slide-btn prev-btn">‹</button>
+          <button class="slide-btn next-btn">›</button>
+          <div class="slide-dots"></div>
+        </div>
+        <div class="card-content">
+          <h3>👕 Clothing Branding</h3>
+          <p>Streetwear, luxury tags, label design, and packaging solutions that define fashion identities.</p>
+        </div>
+      </div>
+
+      <!-- Web Dev Card -->
+      <div class="service-card" data-card="web">
+        <div class="slideshow-container" id="slideshow-web">
+          <img class="slide-img" src="https://placehold.co/900x500/111827/38bdf8?text=Web+Development+%E2%80%A2+Modern+Responsive" alt="slide 1">
+          <button class="slide-btn prev-btn" aria-label="Previous">‹</button>
+          <button class="slide-btn next-btn" aria-label="Next">›</button>
+          <div class="slide-dots"></div>
+        </div>
+        <div class="card-content">
+          <h3>🌐 Web Development</h3>
+          <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability in mind. Tailored for brands that demand performance.</p>
+        </div>
+      </div>
+
+      <!-- Software Dev Card -->
+      <div class="service-card" data-card="software">
+        <div class="slideshow-container" id="slideshow-software">
+          <img class="slide-img" src="https://placehold.co/900x500/1e293b/90e0ff?text=Software+Engineering+%E2%80%A2+Custom+ERP" alt="slide 1">
+          <button class="slide-btn prev-btn">‹</button>
+          <button class="slide-btn next-btn">›</button>
+          <div class="slide-dots"></div>
+        </div>
+        <div class="card-content">
+          <h3>⚙️ Software Development</h3>
+          <p>Custom ERP, automation tools, and cloud-native systems that streamline operations and unlock business intelligence.</p>
+        </div>
+      </div>
+
+      <!-- COMING SOON SECTION -->
+      <div class="section-title" id="coming">🚀 Coming Soon</div>
+      <div class="soon-stack">
+        <div class="soon-item"><h3>📱 Inzozi Shop</h3><p>Phones & tech marketplace — premium gadgets</p><span style="font-size:0.7rem;">Coming soon</span></div>
+        <div class="soon-item"><h3>📦 Inzozi Store</h3><p>Dropshipping platform & global product network</p><span style="font-size:0.7rem;">coming soon</span></div>
+        <div class="soon-item"><h3>🎬 Movie Hub</h3><p>Cinema streaming & entertainment experience</p><span style="font-size:0.7rem;">Coming soon</span></div>
+        <div class="soon-item"><h3>🍸 Inzozi Lounge</h3><p>Premium relaxation space & coworking lounge</p><span style="font-size:0.7rem;">coming soon</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- Software Dev Card with slideshow -->
-  <div class="service-card" data-card="software">
-    <div class="slideshow-container" id="slideshow-software">
-      <img class="slide-img" src="https://placehold.co/900x500/1e293b/90e0ff?text=Software+Engineering+%E2%80%A2+Custom+ERP" alt="slide 1">
-      <button class="slide-btn prev-btn">‹</button>
-      <button class="slide-btn next-btn">›</button>
-      <div class="slide-dots"></div>
+  <!-- RIGHT SIDEBAR - NEW ADDITION -->
+  <div class="right-sidebar">
+    <!-- Customer Reviews -->
+    <div class="sidebar-card">
+      <h4>⭐ Customer Reviews</h4>
+      <div class="mini-review">
+        <span>★★★★★</span>
+        <p>"Amazing quality hoodies! Best streetwear brand."</p>
+        <small>- Marcus T.</small>
+      </div>
+      <div class="mini-review">
+        <span>★★★★★</span>
+        <p>"Fast shipping and amazing designs."</p>
+        <small>- Sarah K.</small>
+      </div>
+      <div class="mini-review">
+        <span>★★★★☆</span>
+        <p>"Great streetwear vibe. Will buy again."</p>
+        <small>- David L.</small>
+      </div>
     </div>
-    <div class="card-content">
-      <h3>⚙️ Software Development</h3>
-      <p>Custom ERP, automation tools, and cloud-native systems that streamline operations and unlock business intelligence.</p>
+
+    <!-- Special Offer -->
+    <div class="sidebar-card offer">
+      <span class="badge">🔥 LIMITED TIME</span>
+      <h4>20% OFF</h4>
+      <p>Your first purchase</p>
+      <code>CODE: INZOZI20</code>
     </div>
-  </div>
 
- 
+    <!-- Newsletter Signup -->
+    <div class="sidebar-card">
+      <h4>✉️ Get 10% OFF</h4>
+      <input type="email" placeholder="Your email">
+      <button>Subscribe</button>
+    </div>
 
-  <!-- COMING SOON SECTION -->
-  <div class="section-title" id="coming">🚀 Coming Soon</div>
-  <div class="soon-stack">
-    <div class="soon-item"><h3>📱 Inzozi Shop</h3><p>Phones & tech marketplace — premium gadgets</p><span style="font-size:0.7rem;">Coming soon</span></div>
-    <div class="soon-item"><h3>📦 Inzozi Store</h3><p>Dropshipping platform & global product network</p><span style="font-size:0.7rem;">coming soon</span></div>
-    <div class="soon-item"><h3>🎬 Movie Hub</h3><p>Cinema streaming & entertainment experience</p><span style="font-size:0.7rem;">Coming soon</span></div>
-    <div class="soon-item"><h3>🍸 Inzozi Lounge</h3><p>Premium relaxation space & coworking lounge</p><span style="font-size:0.7rem;">coming soon</span></div>
+    <!-- Social Links -->
+    <div class="sidebar-card">
+      <h4>📱 Follow @inzozi</h4>
+      <div class="social-icons">
+        <a href="#">📷 IG</a>
+        <a href="#">🎵 TT</a>
+        <a href="#">🐦 X</a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="sidebar-card">
+      <h4>🔗 Info</h4>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- FOOTER with contact -->
+<!-- FOOTER -->
 <footer class="site-footer" id="footer">
   <div class="footer-container">
     <div class="footer-logo">
@@ -574,7 +785,7 @@ img {
   </div>
 </footer>
 
-<!-- LIGHTBOX for fullscreen image viewing -->
+<!-- LIGHTBOX -->
 <div id="lightboxGlobal" class="lightbox-overlay" onclick="closeLightbox()">
   <div class="lightbox-inner" onclick="event.stopPropagation()">
     <img id="lightboxImgSrc" src="" alt="full preview">
@@ -584,8 +795,7 @@ img {
 </div>
 
 <script>
-  // ------------------------- SLIDESHOW LOGIC (each card independent) -------------------------
-  // Define image arrays for each service (5 different slideshows)
+  // SLIDESHOW LOGIC
   const slideshowData = {
     web: {
       images: [
@@ -634,7 +844,6 @@ img {
     }
   };
 
-  // Function to initialize each slideshow
   function initSlideshow(cardId, dataKey) {
     const container = document.getElementById(`slideshow-${cardId}`);
     if (!container) return;
@@ -645,7 +854,6 @@ img {
     const imagesArray = slideshowData[dataKey].images;
     let currentIdx = slideshowData[dataKey].currentIndex;
 
-    // Create dots
     function createDots() {
       dotsContainer.innerHTML = '';
       imagesArray.forEach((_, idx) => {
@@ -664,7 +872,6 @@ img {
     function updateSlide() {
       imgElement.src = imagesArray[currentIdx];
       slideshowData[dataKey].currentIndex = currentIdx;
-      // Update dots active state
       const dots = dotsContainer.querySelectorAll('.dot');
       dots.forEach((dot, idx) => {
         if (idx === currentIdx) dot.classList.add('active');
@@ -690,7 +897,6 @@ img {
       prevSlide();
     });
 
-    // Also clicking on the current image opens lightbox for fullscreen view
     imgElement.style.cursor = 'pointer';
     imgElement.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -702,14 +908,12 @@ img {
     updateSlide();
   }
 
-  // Initialize all five slideshows
   initSlideshow('web', 'web');
   initSlideshow('software', 'software');
   initSlideshow('graphic', 'graphic');
   initSlideshow('logo', 'logo');
   initSlideshow('clothing', 'clothing');
 
-  // Lightbox functions
   function openLightbox(imgUrl, title, desc) {
     const modal = document.getElementById('lightboxGlobal');
     document.getElementById('lightboxImgSrc').src = imgUrl;
@@ -721,7 +925,6 @@ img {
     document.getElementById('lightboxGlobal').style.display = 'none';
   }
 
-  // Smooth scroll for navigation
   document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -732,8 +935,8 @@ img {
       }
     });
   });
-
-  console.log('Slideshow version active — each card has image carousel, no clickable chips.');
 </script>
+</body>
+</html>
 </body>
 </html>
