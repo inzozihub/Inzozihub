@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -150,12 +150,11 @@
       max-width: 100%;
     }
 
-    /* RIGHT SIDEBAR - Starts parallel to Graphic Design card */
+    /* RIGHT SIDEBAR - Starts at same position as Graphic Design card */
     .right-sidebar {
       width: 280px;
       flex-shrink: 0;
-      margin-top: 0;
-      align-self: start;
+      margin-top: 100px;
     }
 
     /* Sidebar Cards */
@@ -429,7 +428,6 @@
       border-top: 1px solid rgba(56, 189, 248, 0.3);
       padding: 2.5rem 2rem 1.5rem;
       margin-top: 2rem;
-      width: 100%;
       margin-left: -5px;
       margin-right: -5px;
       width: calc(100% + 10px);
@@ -565,7 +563,7 @@
       .right-sidebar {
         width: 100%;
         max-width: 900px;
-        margin-top: 0;
+        margin-top: 20px;
       }
       .sidebar-card {
         display: inline-block;
@@ -591,16 +589,8 @@
         width: 100%;
         margin-right: 0;
       }
-      body {
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-      .glass-header, .hero-section, .site-footer {
-        margin-left: -5px;
-        margin-right: -5px;
-      }
-      .site-footer {
-        width: calc(100% + 10px);
+      .right-sidebar {
+        margin-top: 10px;
       }
     }
   </style>
@@ -715,7 +705,7 @@
     </div>
   </div>
 
-  <!-- RIGHT SIDEBAR - Starts parallel to Graphic Design card -->
+  <!-- RIGHT SIDEBAR -->
   <div class="right-sidebar">
     <!-- Customer Reviews -->
     <div class="sidebar-card">
@@ -804,7 +794,12 @@
 <script>
   const slideshowData = {
     web: {
-      images: ["image1", "image1.png", "image1.png", "image1.png"],
+      images: [
+        "image1",
+        "image1.png",
+        "image1.png",
+        "image1.png"
+      ],
       currentIndex: 0
     },
     software: {
