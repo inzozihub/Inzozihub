@@ -46,8 +46,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding-left: 5px;
-      padding-right: 5px;
+      /* NO padding - content touches edges */
     }
 
     /* ========== STICKY HEADER ========== */
@@ -62,8 +61,6 @@
       background: rgba(5, 7, 15, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(56, 189, 248, 0.3);
-      margin-left: -5px;
-      margin-right: -5px;
     }
 
     .brand {
@@ -103,8 +100,6 @@
       text-align: center;
       padding: 4rem 2rem 2.5rem;
       border-bottom: 1px solid rgba(56,189,248,0.2);
-      margin-left: -5px;
-      margin-right: -5px;
     }
     .hero-badge {
       background: rgba(56, 189, 248, 0.12);
@@ -141,6 +136,7 @@
       max-width: 1400px;
       margin: 0 auto;
       width: 100%;
+      padding: 0 20px;
     }
 
     /* LEFT SIDE - Your original content */
@@ -154,7 +150,7 @@
     .right-sidebar {
       width: 280px;
       flex-shrink: 0;
-      margin-top: 100px;
+      margin-top: 145px;  /* Aligns with first card (section-title + card) */
     }
 
     /* Sidebar Cards */
@@ -428,9 +424,7 @@
       border-top: 1px solid rgba(56, 189, 248, 0.3);
       padding: 2.5rem 2rem 1.5rem;
       margin-top: 2rem;
-      margin-left: -5px;
-      margin-right: -5px;
-      width: calc(100% + 10px);
+      width: 100%;
     }
 
     .footer-container {
