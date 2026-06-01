@@ -68,22 +68,6 @@
       gap: 12px;
     }
 
-    .brand-logo {
-      width: 46px;
-      height: 46px;
-      background: linear-gradient(145deg, #1f2c3e, #0a0f1c);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.6rem;
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-      transition: var(--transition);
-    }
-
     .brand-text {
       font-weight: 800;
       font-size: 1.6rem;
@@ -143,7 +127,7 @@
       font-size: 1.05rem;
     }
 
-    /* ========== LAYOUT WITH SIDEBAR ========== */
+    /* ========== LAYOUT WITH SIDEBAR (MOVED DOWN) ========== */
     .main-layout {
       display: flex;
       justify-content: center;
@@ -151,6 +135,7 @@
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
+      margin-top: 20px;  /* Moves everything down slightly */
     }
 
     /* LEFT SIDE - Your original content */
@@ -160,10 +145,11 @@
       max-width: 100%;
     }
 
-    /* RIGHT SIDEBAR - Small additional info */
+    /* RIGHT SIDEBAR - Starts lower */
     .right-sidebar {
       width: 280px;
       flex-shrink: 0;
+      margin-top: 80px;  /* Pushes sidebar DOWN so it starts after hero */
     }
 
     /* Sidebar Cards */
@@ -570,6 +556,7 @@
       .right-sidebar {
         width: 100%;
         max-width: 900px;
+        margin-top: 0;  /* Remove margin on mobile */
       }
       .sidebar-card {
         display: inline-block;
@@ -619,10 +606,10 @@
   <p>Digital ecosystem — technology, fashion, commerce & entertainment. Swipe through visuals, one column.</p>
 </div>
 
-<!-- MAIN LAYOUT WITH SIDEBAR -->
+<!-- MAIN LAYOUT WITH SIDEBAR (MOVED DOWN) -->
 <div class="main-layout">
   
-  <!-- LEFT SIDE - YOUR ORIGINAL CONTENT (COMPLETELY UNCHANGED) -->
+  <!-- LEFT SIDE - YOUR ORIGINAL CONTENT -->
   <div class="left-content">
     <div class="vertical-column" id="tech">
       <div class="section-title">⚡ Inzozi Tech</div>
@@ -673,13 +660,13 @@
       <div class="service-card" data-card="web">
         <div class="slideshow-container" id="slideshow-web">
           <img class="slide-img" src="https://placehold.co/900x500/111827/38bdf8?text=Web+Development+%E2%80%A2+Modern+Responsive" alt="slide 1">
-          <button class="slide-btn prev-btn" aria-label="Previous">‹</button>
-          <button class="slide-btn next-btn" aria-label="Next">›</button>
+          <button class="slide-btn prev-btn">‹</button>
+          <button class="slide-btn next-btn">›</button>
           <div class="slide-dots"></div>
         </div>
         <div class="card-content">
           <h3>🌐 Web Development</h3>
-          <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability in mind. Tailored for brands that demand performance.</p>
+          <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability.</p>
         </div>
       </div>
 
@@ -693,7 +680,7 @@
         </div>
         <div class="card-content">
           <h3>⚙️ Software Development</h3>
-          <p>Custom ERP, automation tools, and cloud-native systems that streamline operations and unlock business intelligence.</p>
+          <p>Custom ERP, automation tools, and cloud-native systems that streamline operations.</p>
         </div>
       </div>
 
@@ -708,7 +695,7 @@
     </div>
   </div>
 
-  <!-- RIGHT SIDEBAR - NEW ADDITION -->
+  <!-- RIGHT SIDEBAR - Starts lower (after hero) -->
   <div class="right-sidebar">
     <!-- Customer Reviews -->
     <div class="sidebar-card">
@@ -781,7 +768,7 @@
       <a href="https://wa.me/250792377749" class="whatsapp-footer" target="_blank" rel="noopener noreferrer">💬 Message on WhatsApp</a>
     </div>
     <div class="footer-divider"></div>
-    <div class="copyright">© 2026 INZOZI HUB — Innovate & Elevate • Visual slideshow experience</div>
+    <div class="copyright">© 2026 INZOZI HUB — Innovate & Elevate</div>
   </div>
 </footer>
 
@@ -789,56 +776,50 @@
 <div id="lightboxGlobal" class="lightbox-overlay" onclick="closeLightbox()">
   <div class="lightbox-inner" onclick="event.stopPropagation()">
     <img id="lightboxImgSrc" src="" alt="full preview">
-    <h3 id="lightboxTitleText" style="margin-top: 12px;">Inzozi Portfolio</h3>
-    <p id="lightboxDescText" style="color:#b9c3db;">Click anywhere outside to close</p>
+    <h3 id="lightboxTitleText">Inzozi Portfolio</h3>
+    <p id="lightboxDescText">Click anywhere outside to close</p>
   </div>
 </div>
 
 <script>
-  // SLIDESHOW LOGIC
   const slideshowData = {
     web: {
-      images: [
-        "image1",
-        "image1.png",
-        "image1.png",
-        "image1.png"
-      ],
+      images: ["image1", "image1.png", "image1.png", "image1.png"],
       currentIndex: 0
     },
     software: {
       images: [
-        "https://placehold.co/900x500/1e293b/90e0ff?text=ERP+System+%E2%80%A2+Custom+Software",
-        "https://placehold.co/900x500/0f172a/38bdf8?text=Inventory+Management+%7C+Real+Time",
-        "https://placehold.co/900x500/1a1e2c/9acdff?text=Analytics+Dashboard+%7C+AI+Insights",
-        "https://placehold.co/900x500/111827/6ee7ff?text=Cloud+Automation+%7C+Workflow"
+        "https://placehold.co/900x500/1e293b/90e0ff?text=ERP+System",
+        "https://placehold.co/900x500/0f172a/38bdf8?text=Inventory+Management",
+        "https://placehold.co/900x500/1a1e2c/9acdff?text=Analytics+Dashboard",
+        "https://placehold.co/900x500/111827/6ee7ff?text=Cloud+Automation"
       ],
       currentIndex: 0
     },
     graphic: {
       images: [
-        "https://placehold.co/900x500/2d3748/ffffff?text=Brand+Identity+%E2%80%A2+Visual+System",
-        "https://placehold.co/900x500/1f2a44/facc15?text=Social+Media+Kit+%7C+Templates",
-        "https://placehold.co/900x500/111827/facc15?text=Business+Deck+%7C+Pitch+Design",
-        "https://placehold.co/900x500/1e293b/ffd966?text=Illustration+%7C+Digital+Art"
+        "https://placehold.co/900x500/2d3748/ffffff?text=Brand+Identity",
+        "https://placehold.co/900x500/1f2a44/facc15?text=Social+Media+Kit",
+        "https://placehold.co/900x500/111827/facc15?text=Business+Deck",
+        "https://placehold.co/900x500/1e293b/ffd966?text=Digital+Art"
       ],
       currentIndex: 0
     },
     logo: {
       images: [
-        "https://placehold.co/900x500/111827/facc15?text=Abstract+Logo+%E2%80%A2+Iconic+Mark",
-        "https://placehold.co/900x500/0a0f1a/facc15?text=Typographic+Logo+%7C+Bold+Lettering",
-        "https://placehold.co/900x500/1e293b/facc15?text=Minimalist+Symbol+%7C+Modern",
-        "https://placehold.co/900x500/111827/ffdb70?text=Brand+Marks+%7C+Versatile"
+        "https://placehold.co/900x500/111827/facc15?text=Abstract+Logo",
+        "https://placehold.co/900x500/0a0f1a/facc15?text=Typographic+Logo",
+        "https://placehold.co/900x500/1e293b/facc15?text=Minimalist+Symbol",
+        "https://placehold.co/900x500/111827/ffdb70?text=Brand+Marks"
       ],
       currentIndex: 0
     },
     clothing: {
       images: [
-        "https://placehold.co/900x500/1b2a3a/38bdf8?text=Streetwear+Lookbook+%E2%80%A2+Urban",
-        "https://placehold.co/900x500/111827/90e0ff?text=Tag+Design+%7C+Clothing+Label",
-        "https://placehold.co/900x500/1e293b/f0f0ff?text=Minimal+Essentials+%7C+Luxury",
-        "https://placehold.co/900x500/0f172a/38bdf8?text=Packaging+Solution+%7C+Fashion"
+        "https://placehold.co/900x500/1b2a3a/38bdf8?text=Streetwear+Lookbook",
+        "https://placehold.co/900x500/111827/90e0ff?text=Tag+Design",
+        "https://placehold.co/900x500/1e293b/f0f0ff?text=Minimal+Essentials",
+        "https://placehold.co/900x500/0f172a/38bdf8?text=Packaging+Solution"
       ],
       currentIndex: 0
     }
@@ -901,7 +882,7 @@
     imgElement.addEventListener('click', (e) => {
       e.stopPropagation();
       const cardTitle = container.closest('.service-card')?.querySelector('.card-content h3')?.innerText || 'Inzozi Work';
-      openLightbox(imgElement.src, cardTitle, 'Explore this project in detail — part of Inzozi portfolio');
+      openLightbox(imgElement.src, cardTitle, 'Explore this project in detail');
     });
 
     createDots();
@@ -936,7 +917,5 @@
     });
   });
 </script>
-</body>
-</html>
 </body>
 </html>
