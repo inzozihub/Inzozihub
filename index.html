@@ -46,6 +46,8 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     /* ========== STICKY HEADER ========== */
@@ -60,6 +62,8 @@
       background: rgba(5, 7, 15, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+      margin-left: -20px;
+      margin-right: -20px;
     }
 
     .brand {
@@ -99,6 +103,8 @@
       text-align: center;
       padding: 4rem 2rem 2.5rem;
       border-bottom: 1px solid rgba(56,189,248,0.2);
+      margin-left: -20px;
+      margin-right: -20px;
     }
     .hero-badge {
       background: rgba(56, 189, 248, 0.12);
@@ -127,15 +133,14 @@
       font-size: 1.05rem;
     }
 
-    /* ========== LAYOUT WITH SIDEBAR (MOVED DOWN) ========== */
+    /* ========== MAIN LAYOUT WITH SIDEBAR ========== */
     .main-layout {
       display: flex;
       justify-content: center;
       gap: 30px;
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 20px;
-      margin-top: 20px;  /* Moves everything down slightly */
+      width: 100%;
     }
 
     /* LEFT SIDE - Your original content */
@@ -145,11 +150,12 @@
       max-width: 100%;
     }
 
-    /* RIGHT SIDEBAR - Starts lower */
+    /* RIGHT SIDEBAR - Starts parallel to Graphic Design card */
     .right-sidebar {
       width: 280px;
       flex-shrink: 0;
-      margin-top: 80px;  /* Pushes sidebar DOWN so it starts after hero */
+      margin-top: 0;
+      align-self: start;
     }
 
     /* Sidebar Cards */
@@ -424,6 +430,9 @@
       padding: 2.5rem 2rem 1.5rem;
       margin-top: 2rem;
       width: 100%;
+      margin-left: -20px;
+      margin-right: -20px;
+      width: calc(100% + 40px);
     }
 
     .footer-container {
@@ -556,7 +565,7 @@
       .right-sidebar {
         width: 100%;
         max-width: 900px;
-        margin-top: 0;  /* Remove margin on mobile */
+        margin-top: 0;
       }
       .sidebar-card {
         display: inline-block;
@@ -582,6 +591,17 @@
         width: 100%;
         margin-right: 0;
       }
+      body {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .glass-header, .hero-section, .site-footer {
+        margin-left: -12px;
+        margin-right: -12px;
+      }
+      .site-footer {
+        width: calc(100% + 24px);
+      }
     }
   </style>
 </head>
@@ -606,7 +626,7 @@
   <p>Digital ecosystem — technology, fashion, commerce & entertainment. Swipe through visuals, one column.</p>
 </div>
 
-<!-- MAIN LAYOUT WITH SIDEBAR (MOVED DOWN) -->
+<!-- MAIN LAYOUT WITH SIDEBAR -->
 <div class="main-layout">
   
   <!-- LEFT SIDE - YOUR ORIGINAL CONTENT -->
@@ -695,7 +715,7 @@
     </div>
   </div>
 
-  <!-- RIGHT SIDEBAR - Starts lower (after hero) -->
+  <!-- RIGHT SIDEBAR - Starts parallel to Graphic Design card -->
   <div class="right-sidebar">
     <!-- Customer Reviews -->
     <div class="sidebar-card">
