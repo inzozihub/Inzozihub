@@ -6,6 +6,55 @@
   <title>InzoziHub</title>
   <link rel="icon" href="IMG_0002.PNG">
   <style>
+    /* ===== STICKY HEADER + MOBILE FIX ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    max-width: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.header-container {
+    max-width: 100%;
+    padding: 0.9rem 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container, .wrapper, section, div {
+    max-width: 100%;
+    overflow-x: hidden;
+}
     /* ========== GLOBAL DESIGN SYSTEM ========== */
     * {
       margin: 0;
