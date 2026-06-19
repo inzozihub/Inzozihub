@@ -46,8 +46,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      margin-left: 14px;
-      padding-left: 10px;
+      padding: 0 15px;
     }
 
     /* ========== STICKY HEADER ========== */
@@ -62,6 +61,8 @@
       background: rgba(5, 7, 15, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+      width: 100%;
+      max-width: 100%;
     }
 
     .brand {
@@ -144,7 +145,6 @@
       flex-shrink: 0;
       width: 900px;
       max-width: 100%;
-      padding-left: 10px;
     }
 
     .right-sidebar {
@@ -157,7 +157,7 @@
       background: rgba(17, 24, 39, 0.6);
       backdrop-filter: blur(10px);
       border-radius: 16px;
-      padding: 5px;
+      padding: 15px;
       margin-bottom: 20px;
       border: 1px solid #2a344d;
     }
@@ -241,6 +241,7 @@
       display: flex;
       gap: 12px;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     .social-icons a {
@@ -543,7 +544,7 @@
       background: #05070f;
     }
 
-    /* Mobile Responsive */
+    /* ========== MOBILE RESPONSIVE ========== */
     @media (max-width: 1200px) {
       .main-layout {
         flex-direction: column;
@@ -565,21 +566,81 @@
       }
     }
 
-    @media (max-width: 700px) {
-      .hero-section h1 { font-size: 2.2rem; }
-      .brand-text { font-size: 1.1rem; }
-      .section-title { font-size: 1.5rem; }
-      .vertical-column { padding: 1rem 0; }
-      .card-content h3 { font-size: 1.2rem; }
-      .glass-header { padding: 0.8rem 1rem; }
-      .nav-links { gap: 1rem; }
-      .slideshow-container { height: 200px; }
+    @media (max-width: 768px) {
+      .glass-header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0.8rem 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+      .hero-section h1 { 
+        font-size: 2.2rem; 
+      }
+      .brand-text { 
+        font-size: 1.1rem; 
+      }
+      .section-title { 
+        font-size: 1.5rem; 
+      }
+      .vertical-column { 
+        padding: 1rem 0; 
+      }
+      .card-content h3 { 
+        font-size: 1.2rem; 
+      }
+      .slideshow-container { 
+        height: 200px; 
+      }
       .sidebar-card {
         width: 100%;
         margin-right: 0;
       }
       .right-sidebar {
         margin-top: 10px;
+      }
+      .main-layout {
+        padding: 0 10px;
+      }
+      body {
+        padding: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      .glass-header {
+        padding: 0.5rem 0.8rem;
+      }
+      .brand-text {
+        font-size: 0.9rem;
+      }
+      .nav-links a {
+        font-size: 0.7rem;
+      }
+      .slideshow-container {
+        height: 150px;
+      }
+      .card-content {
+        padding: 1rem;
+      }
+      .card-content h3 {
+        font-size: 1rem;
+      }
+      .card-content p {
+        font-size: 0.8rem;
+      }
+      .section-title {
+        font-size: 1.2rem;
+        padding-left: 0.5rem;
+      }
+      .sidebar-card {
+        padding: 10px;
       }
     }
   </style>
@@ -706,7 +767,7 @@
       </div>
       <div class="mini-review">
         <span>★★★★★</span>
-        <p>"i recieved my logo with amazing designs."</p>
+        <p>"I received my logo with amazing designs."</p>
         <small>- Sarah K.</small>
       </div>
       <div class="mini-review">
@@ -782,10 +843,10 @@
   const slideshowData = {
     web: {
       images: [
-        "image1",
-        "image1.png",
-        "image1.png",
-        "image1.png"
+        "https://placehold.co/900x500/111827/38bdf8?text=Web+Development",
+        "https://placehold.co/900x500/0f172a/38bdf8?text=Responsive+Design",
+        "https://placehold.co/900x500/1a1e2c/38bdf8?text=Web+Apps",
+        "https://placehold.co/900x500/111827/38bdf8?text=Enterprise+Portals"
       ],
       currentIndex: 0
     },
@@ -809,10 +870,10 @@
     },
     logo: {
       images: [
-        "branda",
-        "megga",
-        "co",
-        "intare"
+        "https://placehold.co/900x500/111827/facc15?text=Logo+Design+1",
+        "https://placehold.co/900x500/0f172a/facc15?text=Logo+Design+2",
+        "https://placehold.co/900x500/1a1e2c/facc15?text=Logo+Design+3",
+        "https://placehold.co/900x500/111827/facc15?text=Logo+Design+4"
       ],
       currentIndex: 0
     },
