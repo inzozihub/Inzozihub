@@ -6,55 +6,6 @@
   <title>InzoziHub</title>
   <link rel="icon" href="IMG_0002.PNG">
   <style>
-    /* ===== STICKY HEADER + MOBILE FIX ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-.sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
-    max-width: 100%;
-    overflow-x: hidden;
-    width: 100%;
-}
-
-.header-container {
-    max-width: 100%;
-    padding: 0.9rem 15px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.container, .wrapper, section, div {
-    max-width: 100%;
-    overflow-x: hidden;
-}
     /* ========== GLOBAL DESIGN SYSTEM ========== */
     * {
       margin: 0;
@@ -96,8 +47,7 @@ img {
       display: flex;
       flex-direction: column;
       margin-left: 14px;
-      paddiing-left: 10px
-      /* NO padding - content touches edges */
+      padding-left: 10px;
     }
 
     /* ========== STICKY HEADER ========== */
@@ -190,22 +140,19 @@ img {
       padding: 0 20px;
     }
 
-    /* LEFT SIDE - Your original content */
     .left-content {
       flex-shrink: 0;
       width: 900px;
       max-width: 100%;
-      padding-left: 10px
+      padding-left: 10px;
     }
 
-    /* RIGHT SIDEBAR - Starts at same position as Graphic Design card */
     .right-sidebar {
       width: 280px;
       flex-shrink: 0;
-      margin-top: 145px;  /* Aligns with first card (section-title + card) */
+      margin-top: 145px;
     }
 
-    /* Sidebar Cards */
     .sidebar-card {
       background: rgba(17, 24, 39, 0.6);
       backdrop-filter: blur(10px);
@@ -323,7 +270,7 @@ img {
       color: #38bdf8;
     }
 
-    /* ========== MAIN CONTAINER - VERTICAL SINGLE COLUMN ========== */
+    /* ========== MAIN CONTAINER ========== */
     .vertical-column {
       max-width: 900px;
       margin: 0 auto;
@@ -334,7 +281,6 @@ img {
       flex: 1;
     }
 
-    /* section title style */
     .section-title {
       font-size: 1.8rem;
       font-weight: 700;
@@ -343,7 +289,6 @@ img {
       margin-bottom: 1rem;
     }
 
-    /* Tech cards stack vertically */
     .service-card {
       background: rgba(17, 24, 39, 0.75);
       backdrop-filter: blur(8px);
@@ -352,8 +297,6 @@ img {
       overflow: hidden;
       transition: var(--transition);
       width: 100%;
-      padding-left: 5x
-      merginf-left: 5px
     }
     .service-card:hover {
       transform: translateY(-4px);
@@ -361,7 +304,6 @@ img {
       box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
     }
 
-    /* ========== IMAGE SLIDESHOW STYLES ========== */
     .slideshow-container {
       position: relative;
       height: 370px;
@@ -442,7 +384,6 @@ img {
       line-height: 1.5;
     }
 
-    /* Coming soon items - vertical stacking */
     .soon-stack {
       display: flex;
       flex-direction: column;
@@ -667,7 +608,7 @@ img {
 <!-- MAIN LAYOUT WITH SIDEBAR -->
 <div class="main-layout">
   
-  <!-- LEFT SIDE - YOUR ORIGINAL CONTENT -->
+  <!-- LEFT SIDE -->
   <div class="left-content">
     <div class="vertical-column" id="tech">
       <div class="section-title">⚡ Inzozi Tech</div>
@@ -785,16 +726,16 @@ img {
     <!-- Newsletter Signup -->
     <div class="sidebar-card">
       <h4>✉️ Get 10% OFF</h4>
-      <p>    when you order online</p>
+      <p>when you order online</p>
     </div>
 
     <!-- Social Links -->
     <div class="sidebar-card">
       <h4>📱 Follow @inzozihub</h4>
       <div class="social-icons">
-        <a href="https:instagram.com/inzozihub"> INSTAGRAM</a>
-        <a href="#"> TIK TOK</a>
-        <a href="#"> X</a>
+        <a href="https://instagram.com/inzozihub">INSTAGRAM</a>
+        <a href="#">TIK TOK</a>
+        <a href="#">X</a>
       </div>
     </div>
 
@@ -802,10 +743,10 @@ img {
     <div class="sidebar-card">
       <h4>🔗 Info</h4>
       <ul>
-        <li>Size Guide</a></li>
-        <li>Shipping Info</a></li>
-        <li>Returns Policy</a></li>
-        <li>Contact Us</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
       </ul>
     </div>
   </div>
