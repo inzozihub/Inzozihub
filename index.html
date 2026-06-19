@@ -13,14 +13,24 @@
       box-sizing: border-box;
     }
 
-    html {
-    overflow-x: hidden;
-}
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
-body {
-    margin: 0;
-    overflow-x: hidden;
-}
+    body {
+      background: radial-gradient(circle at 20% 30%, #0c1122, #05070f);
+      color: #ffffff;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
     img {
       max-width: 100%;
@@ -29,50 +39,28 @@ body {
 
     :root {
       --bg-deep: #05070f;
-      --card-bg: #0f1422cc;
-      --border-glow: #2a3950;
       --primary: #38bdf8;
       --primary-glow: rgba(56, 189, 248, 0.25);
-      --text-white: #ffffff;
       --text-muted: #b9c3db;
-      --accent-gold: #facc15;
       --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    body {
-      background: radial-gradient(circle at 20% 30%, #0c1122, var(--bg-deep));
-      color: var(--text-white);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-      padding: 0 15px;
-    }
-
-    /* ========== STICKY HEADER - FIXED ========== */
+    /* ========== STICKY HEADER ========== */
     .glass-header {
-      position: sticky !important;
-      top: 0 !important;
-      z-index: 9999 !important;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: rgba(5, 7, 15, 0.95) !important;
+      background: rgba(5, 7, 15, 0.95);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 2px solid rgba(56, 189, 248, 0.4);
       width: 100%;
-      max-width: 100%;
-      margin: 0;
-      left: 0;
-      right: 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Make sure header stays above everything */
-    .glass-header * {
-      z-index: 9999;
+      margin: 0 !important;
     }
 
     .brand {
@@ -94,17 +82,24 @@ body {
     .nav-links {
       display: flex;
       gap: 2rem;
+      list-style: none;
     }
     .nav-links a {
-      color: var(--text-muted);
+      color: #b9c3db;
       text-decoration: none;
       font-weight: 500;
       transition: var(--transition);
       font-size: 0.9rem;
     }
     .nav-links a:hover {
-      color: var(--primary);
-      text-shadow: 0 0 6px var(--primary-glow);
+      color: #38bdf8;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.25);
+    }
+
+    /* ========== CONTENT WRAPPER ========== */
+    .content-wrapper {
+      padding: 0 15px;
+      max-width: 100%;
     }
 
     /* ========== HERO SECTION ========== */
@@ -112,7 +107,6 @@ body {
       text-align: center;
       padding: 4rem 2rem 2.5rem;
       border-bottom: 1px solid rgba(56,189,248,0.2);
-      margin-top: 10px;
     }
     .hero-badge {
       background: rgba(56, 189, 248, 0.12);
@@ -137,7 +131,7 @@ body {
     .hero-section p {
       max-width: 620px;
       margin: 1rem auto 0;
-      color: var(--text-muted);
+      color: #b9c3db;
       font-size: 1.05rem;
     }
 
@@ -266,7 +260,7 @@ body {
       font-size: 1.8rem;
       font-weight: 700;
       padding-left: 1rem;
-      border-left: 5px solid var(--primary);
+      border-left: 5px solid #38bdf8;
       margin-bottom: 1rem;
     }
 
@@ -281,7 +275,7 @@ body {
     }
     .service-card:hover {
       transform: translateY(-4px);
-      border-color: var(--primary);
+      border-color: #38bdf8;
       box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
     }
 
@@ -318,7 +312,7 @@ body {
       font-weight: bold;
     }
     .slide-btn:hover {
-      background: var(--primary);
+      background: #38bdf8;
       color: #000;
     }
     .prev-btn {
@@ -346,7 +340,7 @@ body {
       transition: 0.2s;
     }
     .dot.active {
-      background: var(--primary);
+      background: #38bdf8;
       width: 20px;
       border-radius: 10px;
     }
@@ -359,7 +353,7 @@ body {
       margin-bottom: 0.5rem;
     }
     .card-content p {
-      color: var(--text-muted);
+      color: #b9c3db;
       font-size: 0.95rem;
       margin-bottom: 0;
       line-height: 1.5;
@@ -385,11 +379,11 @@ body {
       margin-bottom: 0.2rem;
     }
     .soon-item p {
-      color: var(--primary);
+      color: #38bdf8;
       font-size: 0.8rem;
     }
     .soon-item:hover {
-      border-color: var(--primary);
+      border-color: #38bdf8;
       transform: translateX(5px);
       background: #14212f;
     }
@@ -427,8 +421,8 @@ body {
       justify-content: center;
       font-weight: 800;
       font-size: 1.3rem;
-      border: 1px solid var(--primary);
-      color: var(--primary);
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
     }
 
     .footer-logo-text {
@@ -447,12 +441,12 @@ body {
 
     .footer-contact-info p {
       margin: 0.6rem 0;
-      color: var(--text-muted);
+      color: #b9c3db;
       font-size: 0.95rem;
     }
 
     .footer-contact-info a {
-      color: var(--primary);
+      color: #38bdf8;
       text-decoration: none;
       transition: var(--transition);
     }
@@ -484,7 +478,7 @@ body {
     .footer-divider {
       width: 60px;
       height: 2px;
-      background: var(--primary);
+      background: #38bdf8;
       margin: 1.5rem auto;
       opacity: 0.5;
     }
@@ -495,7 +489,7 @@ body {
       margin-top: 1rem;
     }
 
-    /* LIGHTBOX */
+    /* ========== LIGHTBOX ========== */
     .lightbox-overlay {
       display: none;
       position: fixed;
@@ -514,7 +508,7 @@ body {
       max-width: 650px;
       width: 90%;
       text-align: center;
-      border: 1px solid var(--primary);
+      border: 1px solid #38bdf8;
     }
     .lightbox-inner img {
       width: 100%;
@@ -585,9 +579,6 @@ body {
       .main-layout {
         padding: 0 10px;
       }
-      body {
-        padding: 0 10px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -627,6 +618,7 @@ body {
 </head>
 <body>
 
+<!-- ===== HEADER (STICKY) ===== -->
 <header class="glass-header">
   <div class="brand">
     <img src="IMG_0002.PNG" alt="Inzozi Hub" style="width: 46px; height: 46px; border-radius: 16px; object-fit: cover; border: 1px solid #38bdf8;">
@@ -639,176 +631,182 @@ body {
   </div>
 </header>
 
-<!-- HERO -->
-<div class="hero-section">
-  <div class="hero-badge">✦ since • 2026 ✦</div>
-  <h1>INNOVATE & ELEVATE</h1>
-  <p>Digital ecosystem — technology, fashion, commerce & entertainment. Swipe through visuals, one column.</p>
+<!-- ===== CONTENT WRAPPER ===== -->
+<div class="content-wrapper">
+
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="hero-badge">✦ since • 2026 ✦</div>
+    <h1>INNOVATE & ELEVATE</h1>
+    <p>Digital ecosystem — technology, fashion, commerce & entertainment. Swipe through visuals, one column.</p>
+  </div>
+
+  <!-- MAIN LAYOUT WITH SIDEBAR -->
+  <div class="main-layout">
+    
+    <!-- LEFT SIDE -->
+    <div class="left-content">
+      <div class="vertical-column" id="tech">
+        <div class="section-title">⚡ Inzozi Tech</div>
+
+        <!-- Graphic Design Card -->
+        <div class="service-card" data-card="graphic">
+          <div class="slideshow-container" id="slideshow-graphic">
+            <img class="slide-img" src="https://placehold.co/900x500/2d3748/ffffff?text=Graphic+Design+%E2%80%A2+Visual+Identity" alt="slide 1">
+            <button class="slide-btn prev-btn">‹</button>
+            <button class="slide-btn next-btn">›</button>
+            <div class="slide-dots"></div>
+          </div>
+          <div class="card-content">
+            <h3>🎨 Graphic Design</h3>
+            <p>Brand assets, social visuals, pitch decks, and high-impact digital art that tells your story with creativity.</p>
+          </div>
+        </div>
+
+        <!-- Logo Design Card -->
+        <div class="service-card" data-card="logo">
+          <div class="slideshow-container" id="slideshow-logo">
+            <img class="slide-img" src="https://placehold.co/900x500/111827/facc15?text=Logo+Design+%E2%80%A2+Iconic+Marks" alt="slide 1">
+            <button class="slide-btn prev-btn">‹</button>
+            <button class="slide-btn next-btn">›</button>
+            <div class="slide-dots"></div>
+          </div>
+          <div class="card-content">
+            <h3>✨ Logo Design</h3>
+            <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands.</p>
+          </div>
+        </div>
+
+        <!-- Clothing Branding Card -->
+        <div class="service-card" data-card="clothing">
+          <div class="slideshow-container" id="slideshow-clothing">
+            <img class="slide-img" src="https://placehold.co/900x500/1b2a3a/38bdf8?text=Clothing+Branding+%E2%80%A2+Streetwear" alt="slide 1">
+            <button class="slide-btn prev-btn">‹</button>
+            <button class="slide-btn next-btn">›</button>
+            <div class="slide-dots"></div>
+          </div>
+          <div class="card-content">
+            <h3>👕 Clothing Branding</h3>
+            <p>Streetwear, luxury tags, label design, and packaging solutions that define fashion identities.</p>
+          </div>
+        </div>
+
+        <!-- Web Dev Card -->
+        <div class="service-card" data-card="web">
+          <div class="slideshow-container" id="slideshow-web">
+            <img class="slide-img" src="https://placehold.co/900x500/111827/38bdf8?text=Web+Development+%E2%80%A2+Modern+Responsive" alt="slide 1">
+            <button class="slide-btn prev-btn">‹</button>
+            <button class="slide-btn next-btn">›</button>
+            <div class="slide-dots"></div>
+          </div>
+          <div class="card-content">
+            <h3>🌐 Web Development</h3>
+            <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability.</p>
+          </div>
+        </div>
+
+        <!-- Software Dev Card -->
+        <div class="service-card" data-card="software">
+          <div class="slideshow-container" id="slideshow-software">
+            <img class="slide-img" src="https://placehold.co/900x500/1e293b/90e0ff?text=Software+Engineering+%E2%80%A2+Custom+ERP" alt="slide 1">
+            <button class="slide-btn prev-btn">‹</button>
+            <button class="slide-btn next-btn">›</button>
+            <div class="slide-dots"></div>
+          </div>
+          <div class="card-content">
+            <h3>⚙️ Software Development</h3>
+            <p>Custom ERP, automation tools, and cloud-native systems that streamline operations.</p>
+          </div>
+        </div>
+
+        <!-- COMING SOON SECTION -->
+        <div class="section-title" id="coming">🚀 Coming Soon</div>
+        <div class="soon-stack">
+          <div class="soon-item"><h3>📱 Inzozi Shop</h3><p>Phones & tech marketplace — premium gadgets</p><span style="font-size:0.7rem;">Coming soon</span></div>
+          <div class="soon-item"><h3>📦 Inzozi Store</h3><p>Dropshipping platform & global product network</p><span style="font-size:0.7rem;">coming soon</span></div>
+          <div class="soon-item"><h3>🎬 Movie Hub</h3><p>Cinema streaming & entertainment experience</p><span style="font-size:0.7rem;">Coming soon</span></div>
+          <div class="soon-item"><h3>🍸 Inzozi Lounge</h3><p>Premium relaxation space & coworking lounge</p><span style="font-size:0.7rem;">coming soon</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="right-sidebar">
+      <!-- Customer Reviews -->
+      <div class="sidebar-card">
+        <h4>⭐ Customer Reviews</h4>
+        <div class="mini-review">
+          <span>★★★★★</span>
+          <p>"Amazing quality hoodies! Best streetwear brand."</p>
+          <small>- Marcus T.</small>
+        </div>
+        <div class="mini-review">
+          <span>★★★★★</span>
+          <p>"I received my logo with amazing designs."</p>
+          <small>- Sarah K.</small>
+        </div>
+        <div class="mini-review">
+          <span>★★★★☆</span>
+          <p>"Great streetwear vibe. Will buy again."</p>
+          <small>- David L.</small>
+        </div>
+      </div>
+
+      <!-- Special Offer -->
+      <div class="sidebar-card offer">
+        <span class="badge">🔥 LIMITED TIME</span>
+        <h4>20% OFF</h4>
+        <p>For your first purchase</p>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="sidebar-card">
+        <h4>✉️ Get 10% OFF</h4>
+        <p>when you order online</p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="sidebar-card">
+        <h4>📱 Follow @inzozihub</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/inzozihub">INSTAGRAM</a>
+          <a href="#">TIK TOK</a>
+          <a href="#">X</a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="sidebar-card">
+        <h4>🔗 Info</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">IZ</div>
+        <span class="footer-logo-text">INZOZI HUB</span>
+      </div>
+      <div class="footer-contact-info">
+        <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
+        <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
+        <a href="https://wa.me/250792377749" class="whatsapp-footer" target="_blank" rel="noopener noreferrer">💬 Message on WhatsApp</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="copyright">© 2026 INZOZI HUB — Innovate & Elevate</div>
+    </div>
+  </footer>
+
 </div>
-
-<!-- MAIN LAYOUT WITH SIDEBAR -->
-<div class="main-layout">
-  
-  <!-- LEFT SIDE -->
-  <div class="left-content">
-    <div class="vertical-column" id="tech">
-      <div class="section-title">⚡ Inzozi Tech</div>
-
-      <!-- Graphic Design Card -->
-      <div class="service-card" data-card="graphic">
-        <div class="slideshow-container" id="slideshow-graphic">
-          <img class="slide-img" src="https://placehold.co/900x500/2d3748/ffffff?text=Graphic+Design+%E2%80%A2+Visual+Identity" alt="slide 1">
-          <button class="slide-btn prev-btn">‹</button>
-          <button class="slide-btn next-btn">›</button>
-          <div class="slide-dots"></div>
-        </div>
-        <div class="card-content">
-          <h3>🎨 Graphic Design</h3>
-          <p>Brand assets, social visuals, pitch decks, and high-impact digital art that tells your story with creativity.</p>
-        </div>
-      </div>
-
-      <!-- Logo Design Card -->
-      <div class="service-card" data-card="logo">
-        <div class="slideshow-container" id="slideshow-logo">
-          <img class="slide-img" src="https://placehold.co/900x500/111827/facc15?text=Logo+Design+%E2%80%A2+Iconic+Marks" alt="slide 1">
-          <button class="slide-btn prev-btn">‹</button>
-          <button class="slide-btn next-btn">›</button>
-          <div class="slide-dots"></div>
-        </div>
-        <div class="card-content">
-          <h3>✨ Logo Design</h3>
-          <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands.</p>
-        </div>
-      </div>
-
-      <!-- Clothing Branding Card -->
-      <div class="service-card" data-card="clothing">
-        <div class="slideshow-container" id="slideshow-clothing">
-          <img class="slide-img" src="https://placehold.co/900x500/1b2a3a/38bdf8?text=Clothing+Branding+%E2%80%A2+Streetwear" alt="slide 1">
-          <button class="slide-btn prev-btn">‹</button>
-          <button class="slide-btn next-btn">›</button>
-          <div class="slide-dots"></div>
-        </div>
-        <div class="card-content">
-          <h3>👕 Clothing Branding</h3>
-          <p>Streetwear, luxury tags, label design, and packaging solutions that define fashion identities.</p>
-        </div>
-      </div>
-
-      <!-- Web Dev Card -->
-      <div class="service-card" data-card="web">
-        <div class="slideshow-container" id="slideshow-web">
-          <img class="slide-img" src="https://placehold.co/900x500/111827/38bdf8?text=Web+Development+%E2%80%A2+Modern+Responsive" alt="slide 1">
-          <button class="slide-btn prev-btn">‹</button>
-          <button class="slide-btn next-btn">›</button>
-          <div class="slide-dots"></div>
-        </div>
-        <div class="card-content">
-          <h3>🌐 Web Development</h3>
-          <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability.</p>
-        </div>
-      </div>
-
-      <!-- Software Dev Card -->
-      <div class="service-card" data-card="software">
-        <div class="slideshow-container" id="slideshow-software">
-          <img class="slide-img" src="https://placehold.co/900x500/1e293b/90e0ff?text=Software+Engineering+%E2%80%A2+Custom+ERP" alt="slide 1">
-          <button class="slide-btn prev-btn">‹</button>
-          <button class="slide-btn next-btn">›</button>
-          <div class="slide-dots"></div>
-        </div>
-        <div class="card-content">
-          <h3>⚙️ Software Development</h3>
-          <p>Custom ERP, automation tools, and cloud-native systems that streamline operations.</p>
-        </div>
-      </div>
-
-      <!-- COMING SOON SECTION -->
-      <div class="section-title" id="coming">🚀 Coming Soon</div>
-      <div class="soon-stack">
-        <div class="soon-item"><h3>📱 Inzozi Shop</h3><p>Phones & tech marketplace — premium gadgets</p><span style="font-size:0.7rem;">Coming soon</span></div>
-        <div class="soon-item"><h3>📦 Inzozi Store</h3><p>Dropshipping platform & global product network</p><span style="font-size:0.7rem;">coming soon</span></div>
-        <div class="soon-item"><h3>🎬 Movie Hub</h3><p>Cinema streaming & entertainment experience</p><span style="font-size:0.7rem;">Coming soon</span></div>
-        <div class="soon-item"><h3>🍸 Inzozi Lounge</h3><p>Premium relaxation space & coworking lounge</p><span style="font-size:0.7rem;">coming soon</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT SIDEBAR -->
-  <div class="right-sidebar">
-    <!-- Customer Reviews -->
-    <div class="sidebar-card">
-      <h4>⭐ Customer Reviews</h4>
-      <div class="mini-review">
-        <span>★★★★★</span>
-        <p>"Amazing quality hoodies! Best streetwear brand."</p>
-        <small>- Marcus T.</small>
-      </div>
-      <div class="mini-review">
-        <span>★★★★★</span>
-        <p>"I received my logo with amazing designs."</p>
-        <small>- Sarah K.</small>
-      </div>
-      <div class="mini-review">
-        <span>★★★★☆</span>
-        <p>"Great streetwear vibe. Will buy again."</p>
-        <small>- David L.</small>
-      </div>
-    </div>
-
-    <!-- Special Offer -->
-    <div class="sidebar-card offer">
-      <span class="badge">🔥 LIMITED TIME</span>
-      <h4>20% OFF</h4>
-      <p>For your first purchase</p>
-    </div>
-
-    <!-- Newsletter Signup -->
-    <div class="sidebar-card">
-      <h4>✉️ Get 10% OFF</h4>
-      <p>when you order online</p>
-    </div>
-
-    <!-- Social Links -->
-    <div class="sidebar-card">
-      <h4>📱 Follow @inzozihub</h4>
-      <div class="social-icons">
-        <a href="https://instagram.com/inzozihub">INSTAGRAM</a>
-        <a href="#">TIK TOK</a>
-        <a href="#">X</a>
-      </div>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="sidebar-card">
-      <h4>🔗 Info</h4>
-      <ul>
-        <li><a href="#">Size Guide</a></li>
-        <li><a href="#">Shipping Info</a></li>
-        <li><a href="#">Returns Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="site-footer" id="footer">
-  <div class="footer-container">
-    <div class="footer-logo">
-      <div class="footer-logo-icon">IZ</div>
-      <span class="footer-logo-text">INZOZI HUB</span>
-    </div>
-    <div class="footer-contact-info">
-      <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
-      <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
-      <a href="https://wa.me/250792377749" class="whatsapp-footer" target="_blank" rel="noopener noreferrer">💬 Message on WhatsApp</a>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="copyright">© 2026 INZOZI HUB — Innovate & Elevate</div>
-  </div>
-</footer>
+<!-- ===== END CONTENT WRAPPER ===== -->
 
 <!-- LIGHTBOX -->
 <div id="lightboxGlobal" class="lightbox-overlay" onclick="closeLightbox()">
