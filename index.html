@@ -279,21 +279,18 @@
       box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
     }
 
-    /* ===== INCREASED CARD HEIGHT - FIXES BLACK BARS ===== */
     .slideshow-container {
       position: relative;
-      height: 520px;  /* ← INCREASED from 370px to 520px */
+      height: 520px;
       background: #0a0e18;
       overflow: hidden;
     }
     .slide-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;  /* ← KEEP THIS - fills the space */
+      object-fit: cover;
       transition: opacity 0.4s ease;
     }
-    /* ================================================ */
-
     .slide-btn {
       position: absolute;
       top: 50%;
@@ -570,7 +567,7 @@
         font-size: 1.2rem; 
       }
       .slideshow-container { 
-        height: 300px;  /* ← Mobile height */
+        height: 300px;
       }
       .sidebar-card {
         width: 100%;
@@ -598,7 +595,7 @@
         font-size: 0.7rem;
       }
       .slideshow-container {
-        height: 220px;  /* ← Small mobile height */
+        height: 220px;
       }
       .card-content {
         padding: 1rem;
@@ -680,7 +677,7 @@
           </div>
         </div>
 
-        <!-- Clothing Branding Card - ALL 4 IMAGES -->
+        <!-- Clothing Branding Card -->
         <div class="service-card" data-card="clothing">
           <div class="slideshow-container" id="slideshow-clothing">
             <img class="slide-img" src="IMG_0009.PNG" alt="INSPIRED BY MONEY">
@@ -694,10 +691,10 @@
           </div>
         </div>
 
-        <!-- Web Dev Card -->
+        <!-- ===== WEB DEVELOPMENT CARD - NEW 3 IMAGES ===== -->
         <div class="service-card" data-card="web">
           <div class="slideshow-container" id="slideshow-web">
-            <img class="slide-img" src="https://placehold.co/900x500/111827/38bdf8?text=Web+Development+%E2%80%A2+Modern+Responsive" alt="slide 1">
+            <img class="slide-img" src="IMG_0019.PNG" alt="Web Development">
             <button class="slide-btn prev-btn">‹</button>
             <button class="slide-btn next-btn">›</button>
             <div class="slide-dots"></div>
@@ -707,6 +704,7 @@
             <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability.</p>
           </div>
         </div>
+        <!-- ============================================ -->
 
         <!-- Software Dev Card -->
         <div class="service-card" data-card="software">
@@ -822,24 +820,6 @@
 
 <script>
   const slideshowData = {
-    web: {
-      images: [
-        "https://placehold.co/900x500/111827/38bdf8?text=Web+Development",
-        "https://placehold.co/900x500/0f172a/38bdf8?text=Responsive+Design",
-        "https://placehold.co/900x500/1a1e2c/38bdf8?text=Web+Apps",
-        "https://placehold.co/900x500/111827/38bdf8?text=Enterprise+Portals"
-      ],
-      currentIndex: 0
-    },
-    software: {
-      images: [
-        "https://placehold.co/900x500/1e293b/90e0ff?text=ERP+System",
-        "https://placehold.co/900x500/0f172a/38bdf8?text=Inventory+Management",
-        "https://placehold.co/900x500/1a1e2c/9acdff?text=Analytics+Dashboard",
-        "https://placehold.co/900x500/111827/6ee7ff?text=Cloud+Automation"
-      ],
-      currentIndex: 0
-    },
     graphic: {
       images: [
         "https://placehold.co/900x500/2d3748/ffffff?text=Brand+Identity",
@@ -858,13 +838,31 @@
       ],
       currentIndex: 0
     },
-    // ===== CLOTHING CARD - ALL 4 IMAGES =====
     clothing: {
       images: [
         "IMG_0009.PNG",
         "IMG_0010.PNG",
         "IMG_0011.PNG",
         "2526c192-d4ff-49b8-b662-29d5e0c44851.jpg"
+      ],
+      currentIndex: 0
+    },
+    // ===== WEB DEVELOPMENT - 3 NEW IMAGES =====
+    web: {
+      images: [
+        "IMG_0019.PNG",
+        "IMG_0094.jpg",
+        "IMG_0020.PNG"
+      ],
+      currentIndex: 0
+    },
+    // ==========================================
+    software: {
+      images: [
+        "https://placehold.co/900x500/1e293b/90e0ff?text=ERP+System",
+        "https://placehold.co/900x500/0f172a/38bdf8?text=Inventory+Management",
+        "https://placehold.co/900x500/1a1e2c/9acdff?text=Analytics+Dashboard",
+        "https://placehold.co/900x500/111827/6ee7ff?text=Cloud+Automation"
       ],
       currentIndex: 0
     }
@@ -934,11 +932,11 @@
     updateSlide();
   }
 
-  initSlideshow('web', 'web');
-  initSlideshow('software', 'software');
   initSlideshow('graphic', 'graphic');
   initSlideshow('logo', 'logo');
   initSlideshow('clothing', 'clothing');
+  initSlideshow('web', 'web');
+  initSlideshow('software', 'software');
 
   function openLightbox(imgUrl, title, desc) {
     const modal = document.getElementById('lightboxGlobal');
