@@ -1,964 +1,1164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>InzoziHub</title>
-  <link rel="icon" href="IMG_0002.PNG">
-  <style>
-    /* ========== RESET & BASE ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InzoziHub | Innovate & Elevate</title>
+    <link rel="icon" href="IMG_0002.PNG">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html, body {
-      overflow-x: hidden;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background: radial-gradient(circle at 20% 30%, #0c1122, #05070f);
-      color: #ffffff;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-top: 75px;
+        }
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #38bdf8, #0284c7);
+            border-radius: 10px;
+        }
 
-    :root {
-      --bg-deep: #05070f;
-      --primary: #38bdf8;
-      --primary-glow: rgba(56, 189, 248, 0.25);
-      --text-muted: #b9c3db;
-      --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
+        /* ===== STICKY HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 40px;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-    /* ========== STICKY HEADER ========== */
-    .glass-header {
-      position: sticky;
-      top: 0;
-      z-index: 9999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(5, 7, 15, 0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 2px solid rgba(56, 189, 248, 0.4);
-      width: 100%;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      margin: 0 !important;
-    }
+        .header.scrolled {
+            padding: 10px 40px;
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
 
-    .brand-text {
-      font-weight: 800;
-      font-size: 1.6rem;
-      letter-spacing: 2px;
-      background: linear-gradient(130deg, #fff, #8ed6ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 14px;
+            color: #ffffff;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: #b9c3db;
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-      font-size: 0.9rem;
-    }
-    .nav-links a:hover {
-      color: #38bdf8;
-      text-shadow: 0 0 6px rgba(56, 189, 248, 0.25);
-    }
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
 
-    /* ========== CONTENT WRAPPER ========== */
-    .content-wrapper {
-      padding: 0 15px;
-      max-width: 100%;
-    }
+        /* ===== HAMBURGER MENU - VISIBLE ON ALL SCREENS ===== */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            z-index: 1001;
+        }
 
-    /* ========== HERO SECTION ========== */
-    .hero-section {
-      text-align: center;
-      padding: 4rem 2rem 2.5rem;
-      border-bottom: 1px solid rgba(56,189,248,0.2);
-    }
-    .hero-badge {
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.5);
-      border-radius: 60px;
-      display: inline-block;
-      padding: 0.3rem 1.2rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-      backdrop-filter: blur(4px);
-    }
-    .hero-section h1 {
-      font-size: 3.6rem;
-      font-weight: 800;
-      background: linear-gradient(125deg, #ffffff, #7ac9ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.02em;
-    }
-    .hero-section p {
-      max-width: 620px;
-      margin: 1rem auto 0;
-      color: #b9c3db;
-      font-size: 1.05rem;
-    }
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
 
-    /* ========== MAIN LAYOUT WITH SIDEBAR ========== */
-    .main-layout {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-      width: 100%;
-      padding: 0 20px;
-    }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
 
-    .left-content {
-      flex-shrink: 0;
-      width: 900px;
-      max-width: 100%;
-    }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
 
-    .right-sidebar {
-      width: 280px;
-      flex-shrink: 0;
-      margin-top: 145px;
-    }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
 
-    .sidebar-card {
-      background: rgba(17, 24, 39, 0.6);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: 1px solid #2a344d;
-    }
+        /* ===== OVERLAY MENU - FULL SCREEN ===== */
+        .overlay-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            gap: 24px;
+        }
 
-    .sidebar-card h4 {
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-      color: #38bdf8;
-      border-left: 3px solid #38bdf8;
-      padding-left: 8px;
-    }
+        .overlay-menu.open {
+            display: flex;
+        }
 
-    .mini-review {
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #2a344d;
-    }
+        .overlay-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 8px 0;
+        }
 
-    .mini-review span {
-      color: #facc15;
-      font-size: 0.7rem;
-    }
+        .overlay-menu a:hover {
+            color: #38bdf8;
+            transform: scale(1.05);
+        }
 
-    .mini-review p {
-      font-size: 0.75rem;
-      margin: 4px 0;
-      color: #b9c3db;
-    }
+        .overlay-menu .btn-nav {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            padding: 14px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 8px;
+        }
 
-    .mini-review small {
-      font-size: 0.6rem;
-      color: #6a7894;
-    }
+        .overlay-menu .btn-nav:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+        }
 
-    .offer {
-      text-align: center;
-    }
+        /* ===== MENU CONTACT INFO ===== */
+        .menu-contact {
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
 
-    .badge {
-      background: #facc15;
-      color: #000;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-size: 0.6rem;
-      font-weight: bold;
-      display: inline-block;
-    }
+        .menu-contact p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin: 6px 0;
+        }
 
-    .social-icons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+        .menu-contact a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-    .social-icons a {
-      color: #b9c3db;
-      text-decoration: none;
-      font-size: 0.7rem;
-      padding: 5px 8px;
-      background: #1e293b;
-      border-radius: 20px;
-    }
+        .menu-contact a:hover {
+            color: #ffffff;
+        }
 
-    .sidebar-card ul {
-      list-style: none;
-    }
+        .menu-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #000000;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 8px;
+            transition: 0.3s;
+        }
 
-    .sidebar-card li {
-      margin-bottom: 8px;
-    }
+        .menu-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+        }
 
-    .sidebar-card a {
-      color: #b9c3db;
-      text-decoration: none;
-      font-size: 0.75rem;
-    }
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 40px 80px;
+            background: radial-gradient(ellipse at 20% 50%, rgba(56, 189, 248, 0.05), transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(56, 189, 248, 0.03), transparent 60%),
+                        #0a0a0f;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .sidebar-card a:hover {
-      color: #38bdf8;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-    /* ========== MAIN CONTAINER ========== */
-    .vertical-column {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem 0 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      flex: 1;
-    }
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
+        }
 
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      padding-left: 1rem;
-      border-left: 5px solid #38bdf8;
-      margin-bottom: 1rem;
-    }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
 
-    .service-card {
-      background: rgba(17, 24, 39, 0.75);
-      backdrop-filter: blur(8px);
-      border-radius: 1.8rem;
-      border: 1px solid #2a344d;
-      overflow: hidden;
-      transition: var(--transition);
-      width: 100%;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      border-color: #38bdf8;
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
-    }
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 24px;
+        }
 
-    .slideshow-container {
-      position: relative;
-      height: 520px;
-      background: #0a0e18;
-      overflow: hidden;
-    }
-    .slide-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.4s ease;
-    }
-    .slide-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(4px);
-      color: white;
-      border: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s;
-      z-index: 10;
-      font-weight: bold;
-    }
-    .slide-btn:hover {
-      background: #38bdf8;
-      color: #000;
-    }
-    .prev-btn {
-      left: 12px;
-    }
-    .next-btn {
-      right: 12px;
-    }
-    .slide-dots {
-      position: absolute;
-      bottom: 12px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      z-index: 10;
-    }
-    .dot {
-      width: 8px;
-      height: 8px;
-      background: rgba(255,255,255,0.5);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .dot.active {
-      background: #38bdf8;
-      width: 20px;
-      border-radius: 10px;
-    }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #38bdf8, #0284c7, #38bdf8);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
 
-    .card-content {
-      padding: 1.5rem;
-    }
-    .card-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-    .card-content p {
-      color: #b9c3db;
-      font-size: 0.95rem;
-      margin-bottom: 0;
-      line-height: 1.5;
-    }
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
 
-    .soon-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-    .soon-item {
-      background: linear-gradient(145deg, #111b2a, #0a0f1c);
-      border-radius: 1.5rem;
-      padding: 1.2rem 1.8rem;
-      border: 1px solid #2c3b54;
-      transition: 0.2s;
-      width: 100%;
-    }
-    .soon-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.2rem;
-    }
-    .soon-item p {
-      color: #38bdf8;
-      font-size: 0.8rem;
-    }
-    .soon-item:hover {
-      border-color: #38bdf8;
-      transform: translateX(5px);
-      background: #14212f;
-    }
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 32px;
+        }
 
-    /* ========== FOOTER ========== */
-    .site-footer {
-      background: rgba(5, 7, 15, 0.95);
-      border-top: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 2.5rem 2rem 1.5rem;
-      margin-top: 2rem;
-      width: 100%;
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    .footer-container {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
+        .btn-primary {
+            padding: 14px 36px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
 
-    .footer-logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.5rem;
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
+        }
 
-    .footer-logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(145deg, #1f2c3e, #0a0f1c);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.3rem;
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
-    }
+        .btn-secondary {
+            padding: 14px 36px;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
 
-    .footer-logo-text {
-      font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      background: linear-gradient(130deg, #fff, #8ed6ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
 
-    .footer-contact-info {
-      margin: 1.5rem 0;
-    }
+        /* ===== STATS ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .footer-contact-info p {
-      margin: 0.6rem 0;
-      color: #b9c3db;
-      font-size: 0.95rem;
-    }
+        .stat-item {
+            text-align: center;
+        }
 
-    .footer-contact-info a {
-      color: #38bdf8;
-      text-decoration: none;
-      transition: var(--transition);
-    }
+        .stat-item .number {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .footer-contact-info a:hover {
-      text-decoration: underline;
-      color: #7ac9ff;
-    }
+        .stat-item .label {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
 
-    .whatsapp-footer {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      padding: 0.7rem 1.8rem;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 700;
-      color: #000;
-      margin-top: 0.8rem;
-      transition: var(--transition);
-    }
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            padding: 80px 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .whatsapp-footer:hover {
-      transform: scale(1.02);
-      background: #20b859;
-    }
+        .section-title h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
 
-    .footer-divider {
-      width: 60px;
-      height: 2px;
-      background: #38bdf8;
-      margin: 1.5rem auto;
-      opacity: 0.5;
-    }
+        .section-title h2 span {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .copyright {
-      font-size: 0.7rem;
-      color: #6a7894;
-      margin-top: 1rem;
-    }
+        .section-title p {
+            color: #94a3b8;
+            font-size: 17px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
 
-    /* ========== LIGHTBOX ========== */
-    .lightbox-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.96);
-      backdrop-filter: blur(14px);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      cursor: pointer;
-    }
-    .lightbox-inner {
-      background: #0e1322;
-      border-radius: 2rem;
-      padding: 1.5rem;
-      max-width: 650px;
-      width: 90%;
-      text-align: center;
-      border: 1px solid #38bdf8;
-    }
-    .lightbox-inner img {
-      width: 100%;
-      border-radius: 1rem;
-      max-height: 450px;
-      object-fit: contain;
-      background: #05070f;
-    }
+        /* ===== SERVICES ===== */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 0 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    /* ========== MOBILE RESPONSIVE ========== */
-    @media (max-width: 1200px) {
-      .main-layout {
-        flex-direction: column;
-        align-items: center;
-      }
-      .right-sidebar {
-        width: 100%;
-        max-width: 900px;
-        margin-top: 20px;
-      }
-      .sidebar-card {
-        display: inline-block;
-        width: calc(33% - 14px);
-        margin-right: 20px;
-        vertical-align: top;
-      }
-      .sidebar-card:last-child {
-        margin-right: 0;
-      }
-    }
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px 28px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
 
-    @media (max-width: 768px) {
-      .glass-header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 0.8rem 1rem;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-      }
-      .hero-section h1 { 
-        font-size: 2.2rem; 
-      }
-      .brand-text { 
-        font-size: 1.1rem; 
-      }
-      .section-title { 
-        font-size: 1.5rem; 
-      }
-      .vertical-column { 
-        padding: 1rem 0; 
-      }
-      .card-content h3 { 
-        font-size: 1.2rem; 
-      }
-      .slideshow-container { 
-        height: 300px;
-      }
-      .sidebar-card {
-        width: 100%;
-        margin-right: 0;
-      }
-      .right-sidebar {
-        margin-top: 10px;
-      }
-      .main-layout {
-        padding: 0 10px;
-      }
-    }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #38bdf8, #0284c7);
+            opacity: 0;
+            transition: 0.3s;
+        }
 
-    @media (max-width: 480px) {
-      .hero-section h1 {
-        font-size: 1.8rem;
-      }
-      .glass-header {
-        padding: 0.5rem 0.8rem;
-      }
-      .brand-text {
-        font-size: 0.9rem;
-      }
-      .nav-links a {
-        font-size: 0.7rem;
-      }
-      .slideshow-container {
-        height: 220px;
-      }
-      .card-content {
-        padding: 1rem;
-      }
-      .card-content h3 {
-        font-size: 1rem;
-      }
-      .card-content p {
-        font-size: 0.8rem;
-      }
-      .section-title {
-        font-size: 1.2rem;
-        padding-left: 0.5rem;
-      }
-      .sidebar-card {
-        padding: 10px;
-      }
-    }
-  </style>
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card .icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .service-card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 14px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50px;
+            font-size: 11px;
+            color: #38bdf8;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .service-card .tag:hover {
+            background: rgba(56, 189, 248, 0.2);
+            color: #ffffff;
+        }
+
+        /* ===== SHOWCASE / PORTFOLIO ===== */
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 0 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .showcase-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .showcase-card .showcase-img {
+            height: 220px;
+            background: linear-gradient(135deg, #1a1a2e, #0a0a0f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-card .showcase-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .showcase-card .showcase-img .tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .showcase-card .showcase-body {
+            padding: 24px 28px 28px;
+        }
+
+        .showcase-card .showcase-body h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .showcase-card .showcase-body p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .showcase-card .showcase-body .meta {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .showcase-card .showcase-body .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== COMING SOON ===== */
+        .coming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 0 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .coming-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .coming-item:hover {
+            border-color: rgba(56, 189, 248, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .coming-item .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .coming-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .coming-item p {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .coming-item .status {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50px;
+            font-size: 11px;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo-text {
+            font-size: 20px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col h5 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .footer-col a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #38bdf8;
+        }
+
+        /* ===== FOOTER CONTACT ===== */
+        .footer-contact-info {
+            margin: 16px 0;
+        }
+
+        .footer-contact-info p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin: 6px 0;
+        }
+
+        .footer-contact-info a {
+            color: #38bdf8;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-contact-info a:hover {
+            color: #ffffff;
+        }
+
+        .footer-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #000000;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 8px;
+            transition: 0.3s;
+        }
+
+        .footer-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #38bdf8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 65px;
+            }
+
+            .header {
+                padding: 12px 20px;
+            }
+
+            .hero {
+                padding: 20px 20px 60px;
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                padding: 50px 20px 30px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .services,
+            .showcase,
+            .coming-grid {
+                padding: 0 20px 30px;
+            }
+
+            .stats {
+                padding: 40px 20px;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .stat-item .number {
+                font-size: 28px;
+            }
+
+            .footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+
+            .overlay-menu a {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .stat-item .number {
+                font-size: 22px;
+            }
+
+            .stat-item .label {
+                font-size: 12px;
+            }
+
+            .service-card {
+                padding: 24px 20px;
+            }
+
+            .showcase-card .showcase-body {
+                padding: 18px 20px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-buttons a {
+                text-align: center;
+                width: 100%;
+            }
+
+            .showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .overlay-menu a {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ===== HEADER (STICKY) ===== -->
-<header class="glass-header">
-  <div class="brand">
-    <img src="IMG_0002.PNG" alt="Inzozi Hub" style="width: 46px; height: 46px; border-radius: 16px; object-fit: cover; border: 1px solid #38bdf8;">
-    <span class="brand-text">INZOZI HUB</span>
-  </div>
-  <div class="nav-links">
-    <a href="#tech">Tech</a>
-    <a href="#coming">Coming</a>
-    <a href="#footer">Contact</a>
-  </div>
-</header>
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <a href="#" class="logo">
+            <div class="logo-icon">IZ</div>
+            <span class="logo-text">INZOZI<span>HUB</span></span>
+        </a>
 
-<!-- ===== CONTENT WRAPPER ===== -->
-<div class="content-wrapper">
+        <!-- Hamburger Menu (visible on all screens) -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
-  <!-- HERO -->
-  <div class="hero-section">
-    <div class="hero-badge">✦ since • 2026 ✦</div>
-    <h1>INNOVATE & ELEVATE</h1>
-    <p>Digital ecosystem — technology, fashion, commerce & entertainment. Swipe through visuals, one column.</p>
-  </div>
+    <!-- ===== OVERLAY MENU (Full Screen) ===== -->
+    <div class="overlay-menu" id="overlayMenu">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#coming">Coming</a>
+        <a href="#footer">Contact</a>
+        <a href="https://wa.me/250792377749" class="btn-nav" target="_blank">🚀 Get Started</a>
 
-  <!-- MAIN LAYOUT WITH SIDEBAR -->
-  <div class="main-layout">
-    
-    <!-- LEFT SIDE -->
-    <div class="left-content">
-      <div class="vertical-column" id="tech">
-        <div class="section-title">⚡ Inzozi Tech</div>
+        <!-- Contact Info at bottom of menu -->
+        <div class="menu-contact">
+            <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
+            <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
+            <a href="https://wa.me/250792377749" class="menu-whatsapp" target="_blank">💬 Message on WhatsApp</a>
+        </div>
+    </div>
 
-        <!-- Graphic Design Card -->
-        <div class="service-card" data-card="graphic">
-          <div class="slideshow-container" id="slideshow-graphic">
-            <img class="slide-img" src="https://placehold.co/900x500/2d3748/ffffff?text=Graphic+Design+%E2%80%A2+Visual+Identity" alt="slide 1">
-            <button class="slide-btn prev-btn">‹</button>
-            <button class="slide-btn next-btn">›</button>
-            <div class="slide-dots"></div>
-          </div>
-          <div class="card-content">
-            <h3>🎨 Graphic Design</h3>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✦ Since 2026</div>
+            <h1>Build the <span class="highlight">Future</span> with Us</h1>
+            <p>InzoziHub is your digital ecosystem for technology, fashion, commerce, and entertainment. We bring ideas to life.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">🚀 Explore Services</a>
+                <a href="#portfolio" class="btn-secondary">📖 View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <div class="stats">
+        <div class="stat-item">
+            <div class="number">150+</div>
+            <div class="label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">98%</div>
+            <div class="label">Client Satisfaction</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">50+</div>
+            <div class="label">Global Partners</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">4.9⭐</div>
+            <div class="label">Client Rating</div>
+        </div>
+    </div>
+
+    <!-- ===== SERVICES ===== -->
+    <div class="section-title" id="services">
+        <h2>⚡ Our <span>Services</span></h2>
+        <p>Comprehensive solutions to bring your vision to life.</p>
+    </div>
+
+    <div class="services">
+        <div class="service-card">
+            <span class="icon">🎨</span>
+            <h3>Graphic Design</h3>
             <p>Brand assets, social visuals, pitch decks, and high-impact digital art that tells your story with creativity.</p>
-          </div>
+            <a href="#portfolio" class="tag">Learn More →</a>
         </div>
-
-        <!-- Logo Design Card -->
-        <div class="service-card" data-card="logo">
-          <div class="slideshow-container" id="slideshow-logo">
-            <img class="slide-img" src="https://placehold.co/900x500/111827/facc15?text=Logo+Design+%E2%80%A2+Iconic+Marks" alt="slide 1">
-            <button class="slide-btn prev-btn">‹</button>
-            <button class="slide-btn next-btn">›</button>
-            <div class="slide-dots"></div>
-          </div>
-          <div class="card-content">
-            <h3>✨ Logo Design</h3>
-            <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands.</p>
-          </div>
+        <div class="service-card">
+            <span class="icon">✨</span>
+            <h3>Logo Design</h3>
+            <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands that stand out.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
         </div>
-
-        <!-- Clothing Branding Card -->
-        <div class="service-card" data-card="clothing">
-          <div class="slideshow-container" id="slideshow-clothing">
-            <img class="slide-img" src="IMG_0009.PNG" alt="INSPIRED BY MONEY">
-            <button class="slide-btn prev-btn">‹</button>
-            <button class="slide-btn next-btn">›</button>
-            <div class="slide-dots"></div>
-          </div>
-          <div class="card-content">
-            <h3>👕 Clothing Branding</h3>
+        <div class="service-card">
+            <span class="icon">👕</span>
+            <h3>Clothing Branding</h3>
             <p>Streetwear, luxury tags, label design, and packaging solutions that define fashion identities.</p>
-          </div>
+            <a href="#portfolio" class="tag">Learn More →</a>
         </div>
-
-        <!-- ===== WEB DEVELOPMENT CARD - NEW 3 IMAGES ===== -->
-        <div class="service-card" data-card="web">
-          <div class="slideshow-container" id="slideshow-web">
-            <img class="slide-img" src="IMG_0019.PNG" alt="Web Development">
-            <button class="slide-btn prev-btn">‹</button>
-            <button class="slide-btn next-btn">›</button>
-            <div class="slide-dots"></div>
-          </div>
-          <div class="card-content">
-            <h3>🌐 Web Development</h3>
+        <div class="service-card">
+            <span class="icon">🌐</span>
+            <h3>Web Development</h3>
             <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability.</p>
-          </div>
+            <a href="#portfolio" class="tag">Learn More →</a>
         </div>
-        <!-- ============================================ -->
-
-        <!-- Software Dev Card -->
-        <div class="service-card" data-card="software">
-          <div class="slideshow-container" id="slideshow-software">
-            <img class="slide-img" src="https://placehold.co/900x500/1e293b/90e0ff?text=Software+Engineering+%E2%80%A2+Custom+ERP" alt="slide 1">
-            <button class="slide-btn prev-btn">‹</button>
-            <button class="slide-btn next-btn">›</button>
-            <div class="slide-dots"></div>
-          </div>
-          <div class="card-content">
-            <h3>⚙️ Software Development</h3>
-            <p>Custom ERP, automation tools, and cloud-native systems that streamline operations.</p>
-          </div>
+        <div class="service-card">
+            <span class="icon">⚙️</span>
+            <h3>Software Development</h3>
+            <p>Custom ERP, automation tools, and cloud-native systems that streamline operations and boost efficiency.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
         </div>
-
-        <!-- COMING SOON SECTION -->
-        <div class="section-title" id="coming">🚀 Coming Soon</div>
-        <div class="soon-stack">
-          <div class="soon-item"><h3>📱 Inzozi Shop</h3><p>Phones & tech marketplace — premium gadgets</p><span style="font-size:0.7rem;">Coming soon</span></div>
-          <div class="soon-item"><h3>📦 Inzozi Store</h3><p>Dropshipping platform & global product network</p><span style="font-size:0.7rem;">coming soon</span></div>
-          <div class="soon-item"><h3>🎬 Movie Hub</h3><p>Cinema streaming & entertainment experience</p><span style="font-size:0.7rem;">Coming soon</span></div>
-          <div class="soon-item"><h3>🍸 Inzozi Lounge</h3><p>Premium relaxation space & coworking lounge</p><span style="font-size:0.7rem;">coming soon</span></div>
+        <div class="service-card">
+            <span class="icon">📱</span>
+            <h3>Mobile Apps</h3>
+            <p>iOS and Android apps designed for performance, user experience, and seamless integration.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
         </div>
-      </div>
     </div>
 
-    <!-- RIGHT SIDEBAR -->
-    <div class="right-sidebar">
-      <!-- Customer Reviews -->
-      <div class="sidebar-card">
-        <h4>⭐ Customer Reviews</h4>
-        <div class="mini-review">
-          <span>★★★★★</span>
-          <p>"Amazing quality hoodies! Best streetwear brand."</p>
-          <small>- Marcus T.</small>
-        </div>
-        <div class="mini-review">
-          <span>★★★★★</span>
-          <p>"I received my logo with amazing designs."</p>
-          <small>- Sarah K.</small>
-        </div>
-        <div class="mini-review">
-          <span>★★★★☆</span>
-          <p>"Great streetwear vibe. Will buy again."</p>
-          <small>- David L.</small>
-        </div>
-      </div>
-
-      <!-- Special Offer -->
-      <div class="sidebar-card offer">
-        <span class="badge">🔥 LIMITED TIME</span>
-        <h4>20% OFF</h4>
-        <p>For your first purchase</p>
-      </div>
-
-      <!-- Newsletter Signup -->
-      <div class="sidebar-card">
-        <h4>✉️ Get 10% OFF</h4>
-        <p>when you order online</p>
-      </div>
-
-      <!-- Social Links -->
-      <div class="sidebar-card">
-        <h4>📱 Follow @inzozihub</h4>
-        <div class="social-icons">
-          <a href="https://instagram.com/inzozihub">INSTAGRAM</a>
-          <a href="#">TIK TOK</a>
-          <a href="#">X</a>
-        </div>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="sidebar-card">
-        <h4>🔗 Info</h4>
-        <ul>
-          <li><a href="#">Size Guide</a></li>
-          <li><a href="#">Shipping Info</a></li>
-          <li><a href="#">Returns Policy</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
+    <!-- ===== PORTFOLIO / FEATURED WORK ===== -->
+    <div class="section-title" id="portfolio">
+        <h2>🌟 Featured <span>Work</span></h2>
+        <p>Some of our recent projects that showcase our expertise.</p>
     </div>
-  </div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer" id="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <div class="footer-logo-icon">IZ</div>
-        <span class="footer-logo-text">INZOZI HUB</span>
-      </div>
-      <div class="footer-contact-info">
-        <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
-        <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
-        <a href="https://wa.me/250792377749" class="whatsapp-footer" target="_blank" rel="noopener noreferrer">💬 Message on WhatsApp</a>
-      </div>
-      <div class="footer-divider"></div>
-      <div class="copyright">© 2026 INZOZI HUB — Innovate & Elevate</div>
+    <div class="showcase">
+        <!-- Card 1: Inzozi Brand Identity -->
+        <div class="showcase-card">
+            <div class="showcase-img" style="overflow:hidden; position:relative;">
+                <img src="IMG_0019.PNG" alt="Inzozi Branding" style="width:100%; height:100%; object-fit:cover;">
+                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Brand Identity</span>
+            </div>
+            <div class="showcase-body">
+                <h3>Inzozi Brand Identity</h3>
+                <p>Complete brand identity system including logo design, visual assets, and brand guidelines for InzoziHub's ecosystem.</p>
+                <div class="meta">
+                    <span>📊 Graphic Design</span>
+                    <span>⭐ 4.9</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Inzozi Digital Ecosystem -->
+        <div class="showcase-card">
+            <div class="showcase-img" style="overflow:hidden; position:relative;">
+                <img src="IMG_0094.jpg" alt="Inzozi Digital" style="width:100%; height:100%; object-fit:cover;">
+                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Web Development</span>
+            </div>
+            <div class="showcase-body">
+                <h3>Inzozi Digital Ecosystem</h3>
+                <p>Modern web platform connecting technology, fashion, commerce, and entertainment under one digital roof.</p>
+                <div class="meta">
+                    <span>📊 Web Development</span>
+                    <span>⭐ 4.8</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Inzozi Streetwear Collection -->
+        <div class="showcase-card">
+            <div class="showcase-img" style="overflow:hidden; position:relative;">
+                <img src="IMG_0009.PNG" alt="Clothing Branding" style="width:100%; height:100%; object-fit:cover;">
+                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Clothing Branding</span>
+            </div>
+            <div class="showcase-body">
+                <h3>Inzozi Streetwear Collection</h3>
+                <p>Complete branding package including labels, tags, packaging, and lookbook for InzoziHub's streetwear line.</p>
+                <div class="meta">
+                    <span>📊 Clothing Branding</span>
+                    <span>⭐ 4.9</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
 
-</div>
-<!-- ===== END CONTENT WRAPPER ===== -->
+    <!-- ===== COMING SOON ===== -->
+    <div class="section-title" id="coming">
+        <h2>🚀 Coming <span>Soon</span></h2>
+        <p>Exciting new projects and services on the horizon.</p>
+    </div>
 
-<!-- LIGHTBOX -->
-<div id="lightboxGlobal" class="lightbox-overlay" onclick="closeLightbox()">
-  <div class="lightbox-inner" onclick="event.stopPropagation()">
-    <img id="lightboxImgSrc" src="" alt="full preview">
-    <h3 id="lightboxTitleText">Inzozi Portfolio</h3>
-    <p id="lightboxDescText">Click anywhere outside to close</p>
-  </div>
-</div>
+    <div class="coming-grid">
+        <div class="coming-item">
+            <div class="icon">📱</div>
+            <h4>Inzozi Shop</h4>
+            <p>Phones & tech marketplace — premium gadgets</p>
+            <span class="status">Coming Soon</span>
+        </div>
+        <div class="coming-item">
+            <div class="icon">📦</div>
+            <h4>Inzozi Store</h4>
+            <p>Dropshipping platform & global product network</p>
+            <span class="status">Coming Soon</span>
+        </div>
+        <div class="coming-item">
+            <div class="icon">🎬</div>
+            <h4>Movie Hub</h4>
+            <p>Cinema streaming & entertainment experience</p>
+            <span class="status">Coming Soon</span>
+        </div>
+        <div class="coming-item">
+            <div class="icon">🍸</div>
+            <h4>Inzozi Lounge</h4>
+            <p>Premium relaxation space & coworking lounge</p>
+            <span class="status">Coming Soon</span>
+        </div>
+    </div>
 
-<script>
-  const slideshowData = {
-    graphic: {
-      images: [
-        "https://placehold.co/900x500/2d3748/ffffff?text=Brand+Identity",
-        "https://placehold.co/900x500/1f2a44/facc15?text=Social+Media+Kit",
-        "https://placehold.co/900x500/111827/facc15?text=Business+Deck",
-        "https://placehold.co/900x500/1e293b/ffd966?text=Digital+Art"
-      ],
-      currentIndex: 0
-    },
-    logo: {
-      images: [
-        "https://placehold.co/900x500/111827/facc15?text=Logo+Design+1",
-        "https://placehold.co/900x500/0f172a/facc15?text=Logo+Design+2",
-        "https://placehold.co/900x500/1a1e2c/facc15?text=Logo+Design+3",
-        "https://placehold.co/900x500/111827/facc15?text=Logo+Design+4"
-      ],
-      currentIndex: 0
-    },
-    clothing: {
-      images: [
-        "IMG_0009.PNG",
-        "IMG_0010.PNG",
-        "IMG_0011.PNG",
-        "2526c192-d4ff-49b8-b662-29d5e0c44851.jpg"
-      ],
-      currentIndex: 0
-    },
-    // ===== WEB DEVELOPMENT - 3 NEW IMAGES =====
-    web: {
-      images: [
-        "IMG_0019.PNG",
-        "IMG_0094.jpg",
-        "IMG_0020.PNG"
-      ],
-      currentIndex: 0
-    },
-    // ==========================================
-    software: {
-      images: [
-        "https://placehold.co/900x500/1e293b/90e0ff?text=ERP+System",
-        "https://placehold.co/900x500/0f172a/38bdf8?text=Inventory+Management",
-        "https://placehold.co/900x500/1a1e2c/9acdff?text=Analytics+Dashboard",
-        "https://placehold.co/900x500/111827/6ee7ff?text=Cloud+Automation"
-      ],
-      currentIndex: 0
-    }
-  };
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo-text">INZOZI<span>HUB</span></span>
+                <p>Your digital ecosystem for technology, fashion, commerce, and entertainment. We bring ideas to life.</p>
+                
+                <!-- ===== CONTACT INFO ===== -->
+                <div class="footer-contact-info">
+                    <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
+                    <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
+                    <a href="https://wa.me/250792377749" class="footer-whatsapp" target="_blank">💬 Message on WhatsApp</a>
+                </div>
+            </div>
 
-  function initSlideshow(cardId, dataKey) {
-    const container = document.getElementById(`slideshow-${cardId}`);
-    if (!container) return;
-    const imgElement = container.querySelector('.slide-img');
-    const prevBtn = container.querySelector('.prev-btn');
-    const nextBtn = container.querySelector('.next-btn');
-    const dotsContainer = container.querySelector('.slide-dots');
-    const imagesArray = slideshowData[dataKey].images;
-    let currentIdx = slideshowData[dataKey].currentIndex;
+            <div class="footer-col">
+                <h5>Services</h5>
+                <a href="#services">Graphic Design</a>
+                <a href="#services">Logo Design</a>
+                <a href="#services">Clothing Branding</a>
+                <a href="#services">Web Development</a>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#footer">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <a href="#">Help Center</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 InzoziHub — Since 2026</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">X</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
 
-    function createDots() {
-      dotsContainer.innerHTML = '';
-      imagesArray.forEach((_, idx) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (idx === currentIdx) dot.classList.add('active');
-        dot.addEventListener('click', (e) => {
-          e.stopPropagation();
-          currentIdx = idx;
-          updateSlide();
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== HAMBURGER MENU TOGGLE =====
+        const hamburger = document.getElementById('hamburger');
+        const overlayMenu = document.getElementById('overlayMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            overlayMenu.classList.toggle('open');
+            document.body.style.overflow = overlayMenu.classList.contains('open') ? 'hidden' : '';
         });
-        dotsContainer.appendChild(dot);
-      });
-    }
 
-    function updateSlide() {
-      imgElement.src = imagesArray[currentIdx];
-      slideshowData[dataKey].currentIndex = currentIdx;
-      const dots = dotsContainer.querySelectorAll('.dot');
-      dots.forEach((dot, idx) => {
-        if (idx === currentIdx) dot.classList.add('active');
-        else dot.classList.remove('active');
-      });
-    }
+        // Close menu when a link is clicked
+        document.querySelectorAll('.overlay-menu a, .overlay-menu .btn-nav').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                overlayMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
 
-    function nextSlide() {
-      currentIdx = (currentIdx + 1) % imagesArray.length;
-      updateSlide();
-    }
-    function prevSlide() {
-      currentIdx = (currentIdx - 1 + imagesArray.length) % imagesArray.length;
-      updateSlide();
-    }
+        // ===== HEADER SCROLL EFFECT =====
+        const header = document.getElementById('header');
 
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nextSlide();
-    });
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      prevSlide();
-    });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
-    imgElement.style.cursor = 'pointer';
-    imgElement.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const cardTitle = container.closest('.service-card')?.querySelector('.card-content h3')?.innerText || 'Inzozi Work';
-      openLightbox(imgElement.src, cardTitle, 'Explore this project in detail');
-    });
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 
-    createDots();
-    updateSlide();
-  }
-
-  initSlideshow('graphic', 'graphic');
-  initSlideshow('logo', 'logo');
-  initSlideshow('clothing', 'clothing');
-  initSlideshow('web', 'web');
-  initSlideshow('software', 'software');
-
-  function openLightbox(imgUrl, title, desc) {
-    const modal = document.getElementById('lightboxGlobal');
-    document.getElementById('lightboxImgSrc').src = imgUrl;
-    document.getElementById('lightboxTitleText').innerText = title;
-    document.getElementById('lightboxDescText').innerText = desc;
-    modal.style.display = 'flex';
-  }
-  function closeLightbox() {
-    document.getElementById('lightboxGlobal').style.display = 'none';
-  }
-
-  document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElem = document.getElementById(targetId);
-      if(targetElem) {
-        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
 </body>
 </html>
