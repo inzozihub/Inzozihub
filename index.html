@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InzoziHub</title>
+    <title>InzoziHub | Innovate & Elevate</title>
     <link rel="icon" href="IMG_0002.PNG">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -492,6 +492,37 @@
 
         .slideshow-container .slide-img.active {
             opacity: 1;
+        }
+
+        /* Fallback when image doesn't load */
+        .slideshow-container .slide-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1a1a2e, #0a0a0f);
+            z-index: -1;
+        }
+
+        /* Fallback text when image doesn't load */
+        .slide-fallback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #64748b;
+            font-size: 14px;
+            text-align: center;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .slide-fallback .big-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .slideshow-container .slide-btn {
@@ -991,6 +1022,12 @@
         <a href="#coming">Coming</a>
         <a href="#footer">Contact</a>
         <a href="https://wa.me/250792377749" class="btn-nav" target="_blank">🚀 Get Started</a>
+
+        <div class="menu-contact">
+            <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
+            <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
+            <a href="https://wa.me/250792377749" class="menu-whatsapp" target="_blank">💬 Message on WhatsApp</a>
+        </div>
     </div>
 
     <!-- ===== HERO ===== -->
@@ -1081,7 +1118,7 @@
         <!-- Card 1: Graphic Design -->
         <div class="showcase-card">
             <div class="showcase-img">
-                <img src="IMG_0019.PNG" alt="Graphic Design" style="width:100%; height:100%; object-fit:cover;">
+                <img src="IMG_0019.PNG" alt="Graphic Design" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
                 <span class="tag">Graphic Design</span>
             </div>
             <div class="showcase-body">
@@ -1098,9 +1135,9 @@
         <div class="showcase-card">
             <div class="showcase-img">
                 <div class="slideshow-container" id="slideshow-web">
-                    <img class="slide-img active" src="IMG_0019.PNG" alt="Web 1">
-                    <img class="slide-img" src="IMG_0094.jpg" alt="Web 2">
-                    <img class="slide-img" src="IMG_0020.PNG" alt="Web 3">
+                    <img class="slide-img active" src="IMG_0019.PNG" alt="Web 1" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0094.jpg" alt="Web 2" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0020.PNG" alt="Web 3" onerror="this.style.display='none'">
                     <button class="slide-btn prev-btn" onclick="changeSlide('slideshow-web', -1)">‹</button>
                     <button class="slide-btn next-btn" onclick="changeSlide('slideshow-web', 1)">›</button>
                     <div class="slide-dots" id="dots-web"></div>
@@ -1121,10 +1158,10 @@
         <div class="showcase-card">
             <div class="showcase-img">
                 <div class="slideshow-container" id="slideshow-clothing">
-                    <img class="slide-img active" src="IMG_0009.PNG" alt="Clothing 1">
-                    <img class="slide-img" src="IMG_0010.PNG" alt="Clothing 2">
-                    <img class="slide-img" src="IMG_0011.PNG" alt="Clothing 3">
-                    <img class="slide-img" src="2526c192-d4ff-49b8-b662-29d5e0c44851.jpg" alt="Clothing 4">
+                    <img class="slide-img active" src="IMG_0009.PNG" alt="Clothing 1" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0010.PNG" alt="Clothing 2" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0011.PNG" alt="Clothing 3" onerror="this.style.display='none'">
+                    <img class="slide-img" src="2526c192-d4ff-49b8-b662-29d5e0c44851.jpg" alt="Clothing 4" onerror="this.style.display='none'">
                     <button class="slide-btn prev-btn" onclick="changeSlide('slideshow-clothing', -1)">‹</button>
                     <button class="slide-btn next-btn" onclick="changeSlide('slideshow-clothing', 1)">›</button>
                     <div class="slide-dots" id="dots-clothing"></div>
@@ -1286,6 +1323,7 @@
 
         Object.keys(slideData).forEach(key => {
             const data = slideData[key];
+            if (data.images.length === 0) return;
             data.images.forEach((_, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('dot');
@@ -1297,7 +1335,7 @@
 
         function changeSlide(slideshowId, direction) {
             const data = slideData[slideshowId];
-            if (!data) return;
+            if (!data || data.images.length === 0) return;
             const total = data.images.length;
             data.currentIndex = (data.currentIndex + direction + total) % total;
             updateSlide(slideshowId);
@@ -1324,7 +1362,7 @@
             });
         }
 
-        // Auto-play
+        // Auto-play slideshows
         setInterval(() => {
             Object.keys(slideData).forEach(key => {
                 const data = slideData[key];
