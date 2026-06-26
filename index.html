@@ -68,17 +68,12 @@
             text-decoration: none;
         }
 
-        .logo-icon {
+        .logo img {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #38bdf8, #0284c7);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 14px;
-            color: #ffffff;
+            object-fit: cover;
+            border: 1px solid rgba(56, 189, 248, 0.3);
         }
 
         .logo-text {
@@ -476,6 +471,88 @@
             color: #ffffff;
         }
 
+        /* ===== SLIDESHOW ===== */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #0a0e18;
+        }
+
+        .slideshow-container .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .slideshow-container .slide-img.active {
+            opacity: 1;
+        }
+
+        .slideshow-container .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slideshow-container .slide-btn:hover {
+            background: #38bdf8;
+            color: #000;
+        }
+
+        .slideshow-container .prev-btn {
+            left: 10px;
+        }
+
+        .slideshow-container .next-btn {
+            right: 10px;
+        }
+
+        .slideshow-container .slide-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slideshow-container .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .slideshow-container .dot.active {
+            background: #38bdf8;
+            width: 20px;
+            border-radius: 10px;
+        }
+
         /* ===== SHOWCASE / PORTFOLIO ===== */
         .showcase {
             display: grid;
@@ -511,12 +588,6 @@
             overflow: hidden;
         }
 
-        .showcase-card .showcase-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .showcase-card .showcase-img .tag {
             position: absolute;
             top: 16px;
@@ -527,6 +598,7 @@
             border-radius: 50px;
             font-size: 11px;
             font-weight: 700;
+            z-index: 5;
         }
 
         .showcase-card .showcase-body {
@@ -610,11 +682,68 @@
             font-weight: 600;
         }
 
+        /* ===== CONTACT BAR (Above Footer) ===== */
+        .contact-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-bar h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-bar h3 span {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-bar .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-bar .contact-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-bar .contact-links a:hover {
+            color: #38bdf8;
+        }
+
+        .contact-bar .contact-links .whatsapp-link {
+            background: #25D366;
+            color: #000;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .contact-bar .contact-links .whatsapp-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+            color: #000;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: rgba(255, 255, 255, 0.02);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 60px 40px 30px;
+            padding: 40px 40px 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -657,47 +786,6 @@
 
         .footer-col a:hover {
             color: #38bdf8;
-        }
-
-        /* ===== FOOTER CONTACT ===== */
-        .footer-contact-info {
-            margin: 16px 0;
-        }
-
-        .footer-contact-info p {
-            color: #94a3b8;
-            font-size: 14px;
-            margin: 6px 0;
-        }
-
-        .footer-contact-info a {
-            color: #38bdf8;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .footer-contact-info a:hover {
-            color: #ffffff;
-        }
-
-        .footer-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #25D366;
-            color: #000000;
-            padding: 10px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            margin-top: 8px;
-            transition: 0.3s;
-        }
-
-        .footer-whatsapp:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
         }
 
         .footer-bottom {
@@ -817,6 +905,19 @@
             .overlay-menu a {
                 font-size: 22px;
             }
+
+            .contact-bar {
+                padding: 30px 20px 20px;
+            }
+
+            .contact-bar .contact-links {
+                gap: 16px;
+                flex-direction: column;
+            }
+
+            .showcase {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -855,12 +956,12 @@
                 width: 100%;
             }
 
-            .showcase {
-                grid-template-columns: 1fr;
-            }
-
             .overlay-menu a {
                 font-size: 18px;
+            }
+
+            .slideshow-container {
+                height: 180px;
             }
         }
     </style>
@@ -870,7 +971,7 @@
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
         <a href="#" class="logo">
-            <div class="logo-icon">IZ</div>
+            <img src="IMG_0002.PNG" alt="InzoziHub Logo">
             <span class="logo-text">INZOZI<span>HUB</span></span>
         </a>
 
@@ -983,11 +1084,11 @@
     </div>
 
     <div class="showcase">
-        <!-- Card 1: Inzozi Brand Identity -->
+        <!-- Card 1: Graphic Design -->
         <div class="showcase-card">
             <div class="showcase-img" style="overflow:hidden; position:relative;">
-                <img src="IMG_0019.PNG" alt="Inzozi Branding" style="width:100%; height:100%; object-fit:cover;">
-                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Brand Identity</span>
+                <img src="IMG_0019.PNG" alt="Graphic Design" style="width:100%; height:100%; object-fit:cover;">
+                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Graphic Design</span>
             </div>
             <div class="showcase-body">
                 <h3>Inzozi Brand Identity</h3>
@@ -999,11 +1100,18 @@
             </div>
         </div>
 
-        <!-- Card 2: Inzozi Digital Ecosystem -->
+        <!-- Card 2: Web Development (with slideshow) -->
         <div class="showcase-card">
-            <div class="showcase-img" style="overflow:hidden; position:relative;">
-                <img src="IMG_0094.jpg" alt="Inzozi Digital" style="width:100%; height:100%; object-fit:cover;">
-                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Web Development</span>
+            <div class="showcase-img" style="overflow:hidden; position:relative; padding:0;">
+                <div class="slideshow-container" id="slideshow-web">
+                    <img class="slide-img active" src="IMG_0019.PNG" alt="Web Development 1">
+                    <img class="slide-img" src="IMG_0094.jpg" alt="Web Development 2">
+                    <img class="slide-img" src="IMG_0020.PNG" alt="Web Development 3">
+                    <button class="slide-btn prev-btn" onclick="changeSlide('slideshow-web', -1)">‹</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide('slideshow-web', 1)">›</button>
+                    <div class="slide-dots" id="dots-web"></div>
+                </div>
+                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700; z-index:5;">Web Development</span>
             </div>
             <div class="showcase-body">
                 <h3>Inzozi Digital Ecosystem</h3>
@@ -1015,11 +1123,19 @@
             </div>
         </div>
 
-        <!-- Card 3: Inzozi Streetwear Collection -->
+        <!-- Card 3: Clothing Branding (with slideshow) -->
         <div class="showcase-card">
-            <div class="showcase-img" style="overflow:hidden; position:relative;">
-                <img src="IMG_0009.PNG" alt="Clothing Branding" style="width:100%; height:100%; object-fit:cover;">
-                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700;">Clothing Branding</span>
+            <div class="showcase-img" style="overflow:hidden; position:relative; padding:0;">
+                <div class="slideshow-container" id="slideshow-clothing">
+                    <img class="slide-img active" src="IMG_0009.PNG" alt="Clothing 1">
+                    <img class="slide-img" src="IMG_0010.PNG" alt="Clothing 2">
+                    <img class="slide-img" src="IMG_0011.PNG" alt="Clothing 3">
+                    <img class="slide-img" src="2526c192-d4ff-49b8-b662-29d5e0c44851.jpg" alt="Clothing 4">
+                    <button class="slide-btn prev-btn" onclick="changeSlide('slideshow-clothing', -1)">‹</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide('slideshow-clothing', 1)">›</button>
+                    <div class="slide-dots" id="dots-clothing"></div>
+                </div>
+                <span class="tag" style="position:absolute; top:16px; right:16px; background:linear-gradient(135deg, #38bdf8, #0284c7); color:#fff; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:700; z-index:5;">Clothing Branding</span>
             </div>
             <div class="showcase-body">
                 <h3>Inzozi Streetwear Collection</h3>
@@ -1065,19 +1181,22 @@
         </div>
     </div>
 
+    <!-- ===== CONTACT BAR (Above Footer) ===== -->
+    <div class="contact-bar">
+        <h3>📬 Get in <span>Touch</span></h3>
+        <div class="contact-links">
+            <a href="mailto:kevinshema15@gmail.com">✉️ kevinshema15@gmail.com</a>
+            <a href="tel:+250792377749">📞 +250 792 377 749</a>
+            <a href="https://wa.me/250792377749" class="whatsapp-link" target="_blank">💬 Message on WhatsApp</a>
+        </div>
+    </div>
+
     <!-- ===== FOOTER ===== -->
     <footer class="footer" id="footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <span class="logo-text">INZOZI<span>HUB</span></span>
                 <p>Your digital ecosystem for technology, fashion, commerce, and entertainment. We bring ideas to life.</p>
-                
-                <!-- ===== CONTACT INFO ===== -->
-                <div class="footer-contact-info">
-                    <p>✉️ <a href="mailto:kevinshema15@gmail.com">kevinshema15@gmail.com</a></p>
-                    <p>📞 <a href="tel:+250792377749">+250 792 377 749</a></p>
-                    <a href="https://wa.me/250792377749" class="footer-whatsapp" target="_blank">💬 Message on WhatsApp</a>
-                </div>
             </div>
 
             <div class="footer-col">
@@ -1158,6 +1277,74 @@
                 }
             });
         });
+
+        // ===== SLIDESHOW FUNCTION =====
+        const slideData = {
+            'slideshow-web': {
+                currentIndex: 0,
+                images: document.querySelectorAll('#slideshow-web .slide-img'),
+                dots: document.getElementById('dots-web')
+            },
+            'slideshow-clothing': {
+                currentIndex: 0,
+                images: document.querySelectorAll('#slideshow-clothing .slide-img'),
+                dots: document.getElementById('dots-clothing')
+            }
+        };
+
+        // Initialize dots for each slideshow
+        Object.keys(slideData).forEach(key => {
+            const data = slideData[key];
+            data.images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(key, index));
+                data.dots.appendChild(dot);
+            });
+        });
+
+        function changeSlide(slideshowId, direction) {
+            const data = slideData[slideshowId];
+            if (!data) return;
+            const total = data.images.length;
+            data.currentIndex = (data.currentIndex + direction + total) % total;
+            updateSlide(slideshowId);
+        }
+
+        function goToSlide(slideshowId, index) {
+            const data = slideData[slideshowId];
+            if (!data) return;
+            data.currentIndex = index;
+            updateSlide(slideshowId);
+        }
+
+        function updateSlide(slideshowId) {
+            const data = slideData[slideshowId];
+            if (!data) return;
+
+            // Update images
+            data.images.forEach((img, index) => {
+                img.classList.toggle('active', index === data.currentIndex);
+            });
+
+            // Update dots
+            const dots = data.dots.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === data.currentIndex);
+            });
+        }
+
+        // Auto-play slideshows (optional - 5 second intervals)
+        setInterval(() => {
+            Object.keys(slideData).forEach(key => {
+                const data = slideData[key];
+                if (data.images.length > 1) {
+                    data.currentIndex = (data.currentIndex + 1) % data.images.length;
+                    updateSlide(key);
+                }
+            });
+        }, 5000);
     </script>
 
 </body>
