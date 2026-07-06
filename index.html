@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InzoziHub | Innovate & Elevate</title>
     <link rel="icon" href="IMG_0002.PNG">
+    <meta name="description" content="InzoziHub - Your digital ecosystem for technology, fashion, commerce, and entertainment. Graphic design, web development, clothing branding, and more since 2026.">
+    <meta name="keywords" content="InzoziHub, graphic design, web development, clothing branding, logo design, software development, Rwanda">
+    <meta name="author" content="InzoziHub">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* ===== RESET ===== */
@@ -66,6 +69,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .logo img {
@@ -74,6 +78,13 @@
             border-radius: 12px;
             object-fit: cover;
             border: 1px solid rgba(56, 189, 248, 0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+            border-color: #38bdf8;
         }
 
         .logo-text {
@@ -85,7 +96,7 @@
             letter-spacing: -0.5px;
         }
 
-        /* ===== HAMBURGER MENU ===== */
+        /* ===== HAMBURGER ===== */
         .hamburger {
             display: flex;
             flex-direction: column;
@@ -108,11 +119,9 @@
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-
         .hamburger.active span:nth-child(2) {
             opacity: 0;
         }
-
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
         }
@@ -279,8 +288,12 @@
         }
 
         @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero p {
@@ -636,82 +649,370 @@
             gap: 6px;
         }
 
-        /* ===== LIGHTBOX ===== */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            justify-content: center;
+        /* ===== ABOUT US ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 0 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
             align-items: center;
-            z-index: 9999;
-            cursor: pointer;
-            padding: 20px;
         }
 
-        .lightbox-overlay.open {
+        .about-text h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .about-text h3 span {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-text .about-stats {
             display: flex;
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .lightbox-overlay .lightbox-content {
-            max-width: 800px;
-            width: 100%;
-            max-height: 90vh;
-            position: relative;
-            background: #0a0a0f;
+        .about-text .about-stats div {
+            text-align: left;
+        }
+
+        .about-text .about-stats .num {
+            font-size: 28px;
+            font-weight: 800;
+            color: #38bdf8;
+        }
+
+        .about-text .about-stats .lbl {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #1a1a2e, #0a0a0f);
             border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            border: 1px solid rgba(56, 189, 248, 0.1);
         }
 
-        .lightbox-overlay .lightbox-content img {
-            width: 100%;
-            height: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            display: block;
+        /* ===== PRICING ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 0 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .lightbox-overlay .lightbox-content .lightbox-info {
-            padding: 16px 24px;
-            background: rgba(10, 10, 15, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px 28px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
         }
 
-        .lightbox-overlay .lightbox-content .lightbox-info h3 {
-            font-size: 18px;
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .pricing-card.popular {
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .pricing-card .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            padding: 4px 20px;
+            border-radius: 50px;
+            font-size: 11px;
             font-weight: 700;
         }
 
-        .lightbox-overlay .lightbox-content .lightbox-info p {
+        .pricing-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #38bdf8;
+            margin: 12px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 16px;
             color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 16px 0 24px;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            color: #94a3b8;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .pricing-card ul li::before {
+            content: '✓ ';
+            color: #38bdf8;
+            font-weight: 700;
+        }
+
+        .pricing-card .btn-pricing {
+            display: inline-block;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .pricing-card .btn-pricing:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
+        }
+
+        /* ===== TESTIMONIALS / REVIEWS ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 0 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+            transition: 0.3s;
+        }
+
+        .review-card:hover {
+            border-color: rgba(56, 189, 248, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .review-card .stars {
+            color: #facc15;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .review-card .review-text {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .review-card .review-author {
+            font-weight: 600;
             font-size: 14px;
         }
 
-        .lightbox-overlay .close-btn {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .review-card .review-date {
+            color: #64748b;
+            font-size: 12px;
         }
 
-        .lightbox-overlay .close-btn:hover {
-            background: #38bdf8;
-            color: #000;
-            transform: rotate(90deg);
+        /* ===== REVIEW FORM ===== */
+        .review-form-container {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            padding: 0 40px;
+        }
+
+        .review-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .review-form h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .review-form .form-group {
+            margin-bottom: 16px;
+        }
+
+        .review-form .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #94a3b8;
+        }
+
+        .review-form .form-group input,
+        .review-form .form-group select,
+        .review-form .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+        }
+
+        .review-form .form-group input:focus,
+        .review-form .form-group select:focus,
+        .review-form .form-group textarea:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+        }
+
+        .review-form .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .review-form .form-group select option {
+            background: #0a0a0f;
+            color: #ffffff;
+        }
+
+        .review-form .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .review-form .btn-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
+        }
+
+        .review-form .rating-select {
+            display: flex;
+            gap: 8px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .review-form .rating-select span {
+            transition: 0.2s;
+            color: #2a2a3a;
+        }
+
+        .review-form .rating-select span.active {
+            color: #facc15;
+        }
+
+        .review-form .rating-select span:hover {
+            transform: scale(1.2);
+            color: #facc15;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 40px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-item .faq-question {
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .faq-item .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-item .faq-question .arrow {
+            transition: 0.3s;
+            color: #64748b;
+        }
+
+        .faq-item .faq-question.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-item .faq-answer {
+            padding: 0 20px 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .faq-item .faq-answer.open {
+            padding: 0 20px 20px 20px;
+            max-height: 200px;
         }
 
         /* ===== COMING SOON ===== */
@@ -822,6 +1123,41 @@
             color: #000;
         }
 
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 40px rgba(56, 189, 248, 0.5);
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: rgba(255, 255, 255, 0.02);
@@ -902,6 +1238,84 @@
             color: #38bdf8;
         }
 
+        /* ===== LIGHTBOX ===== */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .lightbox-overlay.open {
+            display: flex;
+        }
+
+        .lightbox-overlay .lightbox-content {
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            position: relative;
+            background: #0a0a0f;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .lightbox-overlay .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-overlay .lightbox-content .lightbox-info {
+            padding: 16px 24px;
+            background: rgba(10, 10, 15, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lightbox-overlay .lightbox-content .lightbox-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .lightbox-overlay .lightbox-content .lightbox-info p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .lightbox-overlay .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-overlay .close-btn:hover {
+            background: #38bdf8;
+            color: #000;
+            transform: rotate(90deg);
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .stats {
@@ -912,6 +1326,15 @@
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image {
+                height: 200px;
             }
         }
 
@@ -947,7 +1370,9 @@
 
             .services,
             .showcase,
-            .coming-grid {
+            .coming-grid,
+            .pricing-grid,
+            .reviews-grid {
                 padding: 0 20px 30px;
             }
 
@@ -1006,8 +1431,29 @@
                 height: 180px;
             }
 
-            .lightbox-overlay .lightbox-content {
-                max-width: 100%;
+            .review-form-container {
+                padding: 0 20px;
+            }
+
+            .review-form {
+                padding: 20px;
+            }
+
+            .faq-container {
+                padding: 0 20px 40px;
+            }
+
+            .about-grid {
+                padding: 0 20px 40px;
+            }
+
+            .about-text .about-stats {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1054,6 +1500,10 @@
             .slideshow-container {
                 height: 160px;
             }
+
+            .pricing-card {
+                padding: 24px 20px;
+            }
         }
     </style>
 </head>
@@ -1061,7 +1511,7 @@
 
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
-        <a href="#" class="logo">
+        <a href="#" class="logo" onclick="openLightbox('IMG_0002.PNG', 'InzoziHub Logo', 'Our official brand logo')">
             <img src="IMG_0002.PNG" alt="InzoziHub Logo">
             <span class="logo-text">INZOZI<span>HUB</span></span>
         </a>
@@ -1075,8 +1525,12 @@
 
     <!-- ===== OVERLAY MENU ===== -->
     <div class="overlay-menu" id="overlayMenu">
+        <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
         <a href="#coming">Coming</a>
         <a href="#footer">Contact</a>
         <a href="https://wa.me/250792377749" class="btn-nav" target="_blank">🚀 Get Started</a>
@@ -1118,6 +1572,37 @@
         <div class="stat-item">
             <div class="number">4.9⭐</div>
             <div class="label">Client Rating</div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT US ===== -->
+    <div class="section-title" id="about">
+        <h2>About <span>Us</span></h2>
+        <p>Learn more about who we are and what drives us.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-text">
+            <h3>We're <span>InzoziHub</span></h3>
+            <p>InzoziHub is a creative and technology agency based in Rwanda, founded in 2026. We specialize in graphic design, web development, clothing branding, logo design, software development, and mobile apps.</p>
+            <p>Our mission is to help businesses and individuals bring their ideas to life through innovative design and cutting-edge technology. We believe in creativity, quality, and customer satisfaction.</p>
+            <div class="about-stats">
+                <div>
+                    <div class="num">2026</div>
+                    <div class="lbl">Founded</div>
+                </div>
+                <div>
+                    <div class="num">12+</div>
+                    <div class="lbl">Team Members</div>
+                </div>
+                <div>
+                    <div class="num">15+</div>
+                    <div class="lbl">Countries Served</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            🚀
         </div>
     </div>
 
@@ -1237,6 +1722,148 @@
         </div>
     </div>
 
+    <!-- ===== PRICING ===== -->
+    <div class="section-title" id="pricing">
+        <h2>💰 Our <span>Packages</span></h2>
+        <p>Choose the plan that fits your needs.</p>
+    </div>
+
+    <div class="pricing-grid">
+        <div class="pricing-card">
+            <h3>Basic</h3>
+            <div class="price">$99 <span>/ project</span></div>
+            <ul>
+                <li>Logo Design</li>
+                <li>Basic Branding</li>
+                <li>Social Media Kit</li>
+                <li>1 Revision</li>
+                <li>3 Day Delivery</li>
+            </ul>
+            <a href="https://wa.me/250792377749" class="btn-pricing">Get Started</a>
+        </div>
+
+        <div class="pricing-card popular">
+            <div class="popular-badge">🔥 Most Popular</div>
+            <h3>Pro</h3>
+            <div class="price">$249 <span>/ project</span></div>
+            <ul>
+                <li>Full Brand Identity</li>
+                <li>Logo + Packaging Design</li>
+                <li>Website Design</li>
+                <li>Unlimited Revisions</li>
+                <li>2 Day Delivery</li>
+            </ul>
+            <a href="https://wa.me/250792377749" class="btn-pricing">Get Started</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3>Premium</h3>
+            <div class="price">$499 <span>/ project</span></div>
+            <ul>
+                <li>Complete Branding Suite</li>
+                <li>Full Website Development</li>
+                <li>Mobile App Design</li>
+                <li>Unlimited Revisions</li>
+                <li>1 Day Delivery</li>
+            </ul>
+            <a href="https://wa.me/250792377749" class="btn-pricing">Get Started</a>
+        </div>
+    </div>
+
+    <!-- ===== REVIEWS / TESTIMONIALS ===== -->
+    <div class="section-title" id="reviews">
+        <h2>⭐ Customer <span>Reviews</span></h2>
+        <p>What our clients say about us.</p>
+    </div>
+
+    <!-- Review Form -->
+    <div class="review-form-container">
+        <div class="review-form">
+            <h3>📝 Leave a Review</h3>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="reviewName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="rating-select" id="ratingSelect">
+                        <span data-value="1">⭐</span>
+                        <span data-value="2">⭐</span>
+                        <span data-value="3">⭐</span>
+                        <span data-value="4">⭐</span>
+                        <span data-value="5">⭐</span>
+                    </div>
+                    <input type="hidden" id="reviewRating" value="5">
+                </div>
+                <div class="form-group">
+                    <label>Your Review</label>
+                    <textarea id="reviewText" placeholder="Share your experience with us..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reviews Display -->
+    <div class="reviews-grid" id="reviewsContainer">
+        <!-- Reviews will be added here by JavaScript -->
+    </div>
+
+    <!-- ===== FAQ ===== -->
+    <div class="section-title" id="faq">
+        <h2>❓ Frequently Asked <span>Questions</span></h2>
+        <p>Answers to common questions about our services.</p>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                What services does InzoziHub offer?
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+                We offer Graphic Design, Logo Design, Clothing Branding, Web Development, Software Development, and Mobile App Development.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                How long does a project take?
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+                Project timelines vary depending on the scope. Basic projects take 1-3 days, while complex projects can take 1-2 weeks. We'll give you a timeline before starting.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                How much do your services cost?
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+                We offer flexible pricing starting from $99 for basic projects. Check our Pricing section for package details or contact us for a custom quote.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                Do you offer revisions?
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+                Yes! We offer unlimited revisions on Pro and Premium packages. Basic packages include 1 revision. We want you to be 100% satisfied with our work.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                How can I get started?
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+                Simply click the "Get Started" button or message us on WhatsApp. We'll discuss your project and provide a quote within 24 hours.
+            </div>
+        </div>
+    </div>
+
     <!-- ===== COMING SOON ===== -->
     <div class="section-title" id="coming">
         <h2>🚀 Coming <span>Soon</span></h2>
@@ -1288,25 +1915,25 @@
                 <p>Your digital ecosystem for technology, fashion, commerce, and entertainment. We bring ideas to life.</p>
             </div>
             <div class="footer-col">
-                <h5>Services</h5>
-                <a href="#services">Graphic Design</a>
-                <a href="#services">Logo Design</a>
-                <a href="#services">Clothing Branding</a>
-                <a href="#services">Web Development</a>
-            </div>
-            <div class="footer-col">
-                <h5>Company</h5>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Blog</a>
-                <a href="#footer">Contact</a>
+                <h5>Quick Links</h5>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#pricing">Pricing</a>
             </div>
             <div class="footer-col">
                 <h5>Support</h5>
-                <a href="#">Help Center</a>
-                <a href="#">FAQ</a>
+                <a href="#faq">FAQ</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#footer">Contact</a>
                 <a href="#">Privacy Policy</a>
-                <a href="#">Terms</a>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">X</a>
+                <a href="#">YouTube</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1319,6 +1946,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
     <!-- ===== LIGHTBOX ===== -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
@@ -1354,11 +1984,8 @@
             document.body.style.overflow = '';
         }
 
-        // Close lightbox with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
+            if (e.key === 'Escape') closeLightbox();
         });
 
         // ===== HAMBURGER =====
@@ -1381,12 +2008,20 @@
 
         // ===== HEADER SCROLL =====
         const header = document.getElementById('header');
+        const backToTop = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
             }
         });
 
@@ -1472,6 +2107,154 @@
                 }
             });
         }, 5000);
+
+        // ===== FAQ TOGGLE =====
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+
+            if (!isOpen) {
+                answer.classList.add('open');
+                element.classList.add('active');
+            }
+        }
+
+        // ===== RATING SELECT =====
+        const stars = document.querySelectorAll('#ratingSelect span');
+        const ratingInput = document.getElementById('reviewRating');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.dataset.value);
+                ratingInput.value = value;
+
+                stars.forEach(s => {
+                    const sValue = parseInt(s.dataset.value);
+                    if (sValue <= value) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+
+            star.addEventListener('mouseenter', function() {
+                const value = parseInt(this.dataset.value);
+                stars.forEach(s => {
+                    const sValue = parseInt(s.dataset.value);
+                    if (sValue <= value) {
+                        s.style.color = '#facc15';
+                    } else {
+                        s.style.color = '#2a2a3a';
+                    }
+                });
+            });
+
+            star.addEventListener('mouseleave', function() {
+                const selected = parseInt(ratingInput.value);
+                stars.forEach(s => {
+                    const sValue = parseInt(s.dataset.value);
+                    if (sValue <= selected) {
+                        s.style.color = '#facc15';
+                    } else {
+                        s.style.color = '#2a2a3a';
+                    }
+                });
+            });
+        });
+
+        // ===== REVIEW SYSTEM =====
+        // Load reviews from localStorage
+        let reviews = JSON.parse(localStorage.getItem('inzoziReviews')) || [];
+
+        // Default reviews
+        if (reviews.length === 0) {
+            reviews = [
+                { name: 'Marcus T.', rating: 5, text: 'Amazing quality hoodies! Best streetwear brand in Rwanda. Highly recommend!', date: '2026-06-15' },
+                { name: 'Sarah K.', rating: 5, text: 'I received my logo with amazing designs. The team is very professional and creative.', date: '2026-06-10' },
+                { name: 'David L.', rating: 4, text: 'Great streetwear vibe. The packaging and branding are top quality. Will buy again.', date: '2026-06-05' }
+            ];
+            localStorage.setItem('inzoziReviews', JSON.stringify(reviews));
+        }
+
+        function displayReviews() {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#94a3b8; grid-column:1/-1;">No reviews yet. Be the first to leave a review!</p>';
+                return;
+            }
+
+            // Display reviews in reverse order (newest first)
+            const sortedReviews = [...reviews].reverse();
+            sortedReviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="stars">${'⭐'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                    <div class="review-text">"${review.text}"</div>
+                    <div class="review-author">${review.name}</div>
+                    <div class="review-date">${review.date || 'Just now'}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        displayReviews();
+
+        // Submit review form
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('reviewName').value.trim();
+            const rating = parseInt(document.getElementById('reviewRating').value);
+            const text = document.getElementById('reviewText').value.trim();
+
+            if (!name || !text) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const newReview = {
+                name: name,
+                rating: rating,
+                text: text,
+                date: new Date().toISOString().split('T')[0]
+            };
+
+            reviews.push(newReview);
+            localStorage.setItem('inzoziReviews', JSON.stringify(reviews));
+            displayReviews();
+
+            // Reset form
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewText').value = '';
+            document.getElementById('reviewRating').value = 5;
+            stars.forEach(s => {
+                const sValue = parseInt(s.dataset.value);
+                if (sValue <= 5) s.classList.add('active');
+            });
+
+            alert('✅ Thank you for your review!');
+        });
+
+        // ===== SMOOTH SCROLL FOR NAV =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 
 </body>
