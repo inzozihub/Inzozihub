@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InzoziHub</title>
+    <title>InzoziHub | Innovate & Elevate</title>
     <link rel="icon" href="IMG_0002.PNG">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -496,93 +496,6 @@
             opacity: 1;
         }
 
-        /* ===== LIGHTBOX ===== */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            padding: 40px;
-        }
-
-        .lightbox-overlay.active {
-            display: flex;
-        }
-
-        .lightbox-overlay .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-            animation: lightboxIn 0.3s ease;
-        }
-
-        @keyframes lightboxIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .lightbox-overlay .lightbox-content img {
-            width: 100%;
-            height: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-        }
-
-        .lightbox-overlay .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox-overlay .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
-        }
-
-        .lightbox-overlay .lightbox-caption {
-            text-align: center;
-            color: #94a3b8;
-            font-size: 14px;
-            margin-top: 16px;
-            padding: 8px 16px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-        }
-
-        .lightbox-overlay .lightbox-caption h3 {
-            color: #ffffff;
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-
         .slideshow-container .slide-btn {
             position: absolute;
             top: 50%;
@@ -673,7 +586,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .showcase-card .showcase-img .tag {
@@ -690,21 +602,8 @@
             pointer-events: none;
         }
 
-        /* Click to zoom indicator */
-        .showcase-card .showcase-img .zoom-hint {
-            position: absolute;
-            bottom: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: #94a3b8;
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-size: 10px;
-            z-index: 5;
-            pointer-events: none;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .showcase-card .showcase-img img {
+            cursor: pointer;
         }
 
         .showcase-card .showcase-body {
@@ -735,6 +634,84 @@
             display: flex;
             align-items: center;
             gap: 6px;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .lightbox-overlay.open {
+            display: flex;
+        }
+
+        .lightbox-overlay .lightbox-content {
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            position: relative;
+            background: #0a0a0f;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .lightbox-overlay .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-overlay .lightbox-content .lightbox-info {
+            padding: 16px 24px;
+            background: rgba(10, 10, 15, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lightbox-overlay .lightbox-content .lightbox-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .lightbox-overlay .lightbox-content .lightbox-info p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .lightbox-overlay .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-overlay .close-btn:hover {
+            background: #38bdf8;
+            color: #000;
+            transform: rotate(90deg);
         }
 
         /* ===== COMING SOON ===== */
@@ -1029,12 +1006,8 @@
                 height: 180px;
             }
 
-            .lightbox-overlay .lightbox-close {
-                top: 10px;
-                right: 10px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
+            .lightbox-overlay .lightbox-content {
+                max-width: 100%;
             }
         }
 
@@ -1115,18 +1088,6 @@
         </div>
     </div>
 
-    <!-- ===== LIGHTBOX ===== -->
-    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-            <img id="lightboxImage" src="" alt="Full view">
-            <div class="lightbox-caption">
-                <h3 id="lightboxTitle">InzoziHub</h3>
-                <p id="lightboxDesc">Click anywhere outside to close</p>
-            </div>
-        </div>
-    </div>
-
     <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-content">
@@ -1171,4 +1132,347 @@
             <span class="icon">🎨</span>
             <h3>Graphic Design</h3>
             <p>Brand assets, social visuals, pitch decks, and high-impact digital art that tells your story with creativity.</p>
-            <a href="#portfolio" class="tag">Learn More →
+            <a href="#portfolio" class="tag">Learn More →</a>
+        </div>
+        <div class="service-card">
+            <span class="icon">✨</span>
+            <h3>Logo Design</h3>
+            <p>Memorable marks, wordmarks, and symbolic identity systems for modern brands that stand out.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
+        </div>
+        <div class="service-card">
+            <span class="icon">👕</span>
+            <h3>Clothing Branding</h3>
+            <p>Streetwear, luxury tags, label design, and packaging solutions that define fashion identities.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
+        </div>
+        <div class="service-card">
+            <span class="icon">🌐</span>
+            <h3>Web Development</h3>
+            <p>Modern responsive websites, progressive web apps, and enterprise portals built with speed and scalability.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
+        </div>
+        <div class="service-card">
+            <span class="icon">⚙️</span>
+            <h3>Software Development</h3>
+            <p>Custom ERP, automation tools, and cloud-native systems that streamline operations and boost efficiency.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
+        </div>
+        <div class="service-card">
+            <span class="icon">📱</span>
+            <h3>Mobile Apps</h3>
+            <p>iOS and Android apps designed for performance, user experience, and seamless integration.</p>
+            <a href="#portfolio" class="tag">Learn More →</a>
+        </div>
+    </div>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <div class="section-title" id="portfolio">
+        <h2>🌟 Featured <span>Work</span></h2>
+        <p>Some of our recent projects that showcase our expertise.</p>
+    </div>
+
+    <div class="showcase">
+        <!-- Card 1: Graphic Design -->
+        <div class="showcase-card">
+            <div class="showcase-img">
+                <img src="IMG_0019.PNG" alt="Graphic Design" style="width:100%; height:100%; object-fit:cover; cursor:pointer;" onclick="openLightbox('IMG_0019.PNG', 'Inzozi Brand Identity', 'Complete brand identity system for InzoziHub\'s ecosystem.')" onerror="this.style.display='none'">
+                <span class="tag">Graphic Design</span>
+            </div>
+            <div class="showcase-body">
+                <h3>Inzozi Brand Identity</h3>
+                <p>Complete brand identity system including logo design, visual assets, and brand guidelines for InzoziHub's ecosystem.</p>
+                <div class="meta">
+                    <span>📊 Graphic Design</span>
+                    <span>⭐ 4.9</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Web Development (Slideshow) -->
+        <div class="showcase-card">
+            <div class="showcase-img">
+                <div class="slideshow-container" id="slideshow-web">
+                    <img class="slide-img active" src="IMG_0019.PNG" alt="Web 1" onclick="openLightbox(this.src, 'Inzozi Digital Ecosystem', 'Modern web platform connecting technology, fashion, commerce, and entertainment.')" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0094.jpg" alt="Web 2" onclick="openLightbox(this.src, 'Inzozi Digital Ecosystem', 'Modern web platform connecting technology, fashion, commerce, and entertainment.')" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0020.PNG" alt="Web 3" onclick="openLightbox(this.src, 'Inzozi Digital Ecosystem', 'Modern web platform connecting technology, fashion, commerce, and entertainment.')" onerror="this.style.display='none'">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide('slideshow-web', -1)">‹</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide('slideshow-web', 1)">›</button>
+                    <div class="slide-dots" id="dots-web"></div>
+                </div>
+                <span class="tag">Web Development</span>
+            </div>
+            <div class="showcase-body">
+                <h3>Inzozi Digital Ecosystem</h3>
+                <p>Modern web platform connecting technology, fashion, commerce, and entertainment under one digital roof.</p>
+                <div class="meta">
+                    <span>📊 Web Development</span>
+                    <span>⭐ 4.8</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Clothing Branding (Slideshow) -->
+        <div class="showcase-card">
+            <div class="showcase-img">
+                <div class="slideshow-container" id="slideshow-clothing">
+                    <img class="slide-img active" src="IMG_0009.PNG" alt="Clothing 1" onclick="openLightbox(this.src, 'Inzozi Streetwear Collection', 'Complete branding package for InzoziHub\'s streetwear line.')" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0010.PNG" alt="Clothing 2" onclick="openLightbox(this.src, 'Inzozi Streetwear Collection', 'Complete branding package for InzoziHub\'s streetwear line.')" onerror="this.style.display='none'">
+                    <img class="slide-img" src="IMG_0011.PNG" alt="Clothing 3" onclick="openLightbox(this.src, 'Inzozi Streetwear Collection', 'Complete branding package for InzoziHub\'s streetwear line.')" onerror="this.style.display='none'">
+                    <img class="slide-img" src="2526c192-d4ff-49b8-b662-29d5e0c44851.jpg" alt="Clothing 4" onclick="openLightbox(this.src, 'Inzozi Streetwear Collection', 'Complete branding package for InzoziHub\'s streetwear line.')" onerror="this.style.display='none'">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide('slideshow-clothing', -1)">‹</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide('slideshow-clothing', 1)">›</button>
+                    <div class="slide-dots" id="dots-clothing"></div>
+                </div>
+                <span class="tag">Clothing Branding</span>
+            </div>
+            <div class="showcase-body">
+                <h3>Inzozi Streetwear Collection</h3>
+                <p>Complete branding package including labels, tags, packaging, and lookbook for InzoziHub's streetwear line.</p>
+                <div class="meta">
+                    <span>📊 Clothing Branding</span>
+                    <span>⭐ 4.9</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== COMING SOON ===== -->
+    <div class="section-title" id="coming">
+        <h2>🚀 Coming <span>Soon</span></h2>
+        <p>Exciting new projects and services on the horizon.</p>
+    </div>
+
+    <div class="coming-grid">
+        <div class="coming-item">
+            <div class="icon">📱</div>
+            <h4>Inzozi Shop</h4>
+            <p>Phones & tech marketplace — premium gadgets</p>
+            <span class="status">Coming Soon</span>
+        </div>
+        <div class="coming-item">
+            <div class="icon">📦</div>
+            <h4>Inzozi Store</h4>
+            <p>Dropshipping platform & global product network</p>
+            <span class="status">Coming Soon</span>
+        </div>
+        <div class="coming-item">
+            <div class="icon">🎬</div>
+            <h4>Movie Hub</h4>
+            <p>Cinema streaming & entertainment experience</p>
+            <span class="status">Coming Soon</span>
+        </div>
+        <div class="coming-item">
+            <div class="icon">🍸</div>
+            <h4>Inzozi Lounge</h4>
+            <p>Premium relaxation space & coworking lounge</p>
+            <span class="status">Coming Soon</span>
+        </div>
+    </div>
+
+    <!-- ===== CONTACT BAR ===== -->
+    <div class="contact-bar">
+        <h3>📬 Get in <span>Touch</span></h3>
+        <div class="contact-links">
+            <a href="mailto:kevinshema15@gmail.com">✉️ kevinshema15@gmail.com</a>
+            <a href="tel:+250792377749">📞 +250 792 377 749</a>
+            <a href="https://wa.me/250792377749" class="whatsapp-link" target="_blank">💬 Message on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo-text">INZOZI<span>HUB</span></span>
+                <p>Your digital ecosystem for technology, fashion, commerce, and entertainment. We bring ideas to life.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Services</h5>
+                <a href="#services">Graphic Design</a>
+                <a href="#services">Logo Design</a>
+                <a href="#services">Clothing Branding</a>
+                <a href="#services">Web Development</a>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#footer">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <a href="#">Help Center</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 InzoziHub — Since 2026</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">X</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeLightbox()">✕</button>
+            <img id="lightboxImage" src="" alt="Full preview">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle">Inzozi Work</h3>
+                <p id="lightboxDesc">Click anywhere outside to close</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== LIGHTBOX FUNCTIONS =====
+        function openLightbox(imageSrc, title, description) {
+            const overlay = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImage');
+            const titleEl = document.getElementById('lightboxTitle');
+            const descEl = document.getElementById('lightboxDesc');
+
+            img.src = imageSrc;
+            titleEl.textContent = title || 'Inzozi Work';
+            descEl.textContent = description || 'Click anywhere outside to close';
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const overlay = document.getElementById('lightbox');
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // ===== HAMBURGER =====
+        const hamburger = document.getElementById('hamburger');
+        const overlayMenu = document.getElementById('overlayMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            overlayMenu.classList.toggle('open');
+            document.body.style.overflow = overlayMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.overlay-menu a, .overlay-menu .btn-nav').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                overlayMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ===== SLIDESHOW =====
+        const slideData = {
+            'slideshow-web': {
+                currentIndex: 0,
+                images: document.querySelectorAll('#slideshow-web .slide-img'),
+                dots: document.getElementById('dots-web')
+            },
+            'slideshow-clothing': {
+                currentIndex: 0,
+                images: document.querySelectorAll('#slideshow-clothing .slide-img'),
+                dots: document.getElementById('dots-clothing')
+            }
+        };
+
+        Object.keys(slideData).forEach(key => {
+            const data = slideData[key];
+            if (data.images.length === 0) return;
+            data.images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goToSlide(key, index);
+                });
+                data.dots.appendChild(dot);
+            });
+        });
+
+        function changeSlide(slideshowId, direction) {
+            const data = slideData[slideshowId];
+            if (!data || data.images.length === 0) return;
+            const total = data.images.length;
+            data.currentIndex = (data.currentIndex + direction + total) % total;
+            updateSlide(slideshowId);
+        }
+
+        function goToSlide(slideshowId, index) {
+            const data = slideData[slideshowId];
+            if (!data) return;
+            data.currentIndex = index;
+            updateSlide(slideshowId);
+        }
+
+        function updateSlide(slideshowId) {
+            const data = slideData[slideshowId];
+            if (!data) return;
+
+            data.images.forEach((img, index) => {
+                img.classList.toggle('active', index === data.currentIndex);
+            });
+
+            const dots = data.dots.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === data.currentIndex);
+            });
+        }
+
+        // Auto-play slideshows
+        setInterval(() => {
+            Object.keys(slideData).forEach(key => {
+                const data = slideData[key];
+                if (data.images.length > 1) {
+                    data.currentIndex = (data.currentIndex + 1) % data.images.length;
+                    updateSlide(key);
+                }
+            });
+        }, 5000);
+    </script>
+
+</body>
+</html>
