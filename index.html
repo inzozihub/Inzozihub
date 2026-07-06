@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InzoziHub</title>
+    <title>InzoziHub | Innovate & Elevate</title>
     <link rel="icon" href="IMG_0002.PNG">
     <meta name="description" content="InzoziHub - Your digital ecosystem for technology, fashion, commerce, and entertainment. Graphic design, web development, clothing branding, and more since 2026.">
     <meta name="keywords" content="InzoziHub, graphic design, web development, clothing branding, logo design, software development, Rwanda">
@@ -288,12 +288,8 @@
         }
 
         @keyframes shimmer {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero p {
@@ -649,169 +645,72 @@
             gap: 6px;
         }
 
-        /* ===== ABOUT US ===== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            padding: 0 40px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
+        /* ===== CUSTOM QUOTE / PRICING NOTE ===== */
+        .quote-section {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 0 40px;
         }
 
-        .about-text h3 {
-            font-size: 28px;
-            font-weight: 700;
+        .quote-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .quote-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .quote-card .quote-icon {
+            font-size: 48px;
             margin-bottom: 16px;
         }
 
-        .about-text h3 span {
+        .quote-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .quote-card h3 span {
             background: linear-gradient(135deg, #38bdf8, #0284c7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .about-text p {
+        .quote-card p {
             color: #94a3b8;
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        .about-text .about-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .about-text .about-stats div {
-            text-align: left;
-        }
-
-        .about-text .about-stats .num {
-            font-size: 28px;
-            font-weight: 800;
-            color: #38bdf8;
-        }
-
-        .about-text .about-stats .lbl {
-            font-size: 13px;
-            color: #94a3b8;
-        }
-
-        .about-image {
-            background: linear-gradient(135deg, #1a1a2e, #0a0a0f);
-            border-radius: 20px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            border: 1px solid rgba(56, 189, 248, 0.1);
-        }
-
-        /* ===== PRICING ===== */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            padding: 0 40px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 20px;
-            padding: 32px 28px;
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(56, 189, 248, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .pricing-card.popular {
-            border-color: #38bdf8;
-            background: rgba(56, 189, 248, 0.05);
-        }
-
-        .pricing-card .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #38bdf8, #0284c7);
-            padding: 4px 20px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .pricing-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .pricing-card .price {
-            font-size: 36px;
-            font-weight: 800;
-            color: #38bdf8;
-            margin: 12px 0;
-        }
-
-        .pricing-card .price span {
             font-size: 16px;
-            color: #94a3b8;
-            font-weight: 400;
+            line-height: 1.8;
+            max-width: 550px;
+            margin: 0 auto 20px;
         }
 
-        .pricing-card ul {
-            list-style: none;
-            margin: 16px 0 24px;
-            text-align: left;
-        }
-
-        .pricing-card ul li {
-            padding: 8px 0;
-            color: #94a3b8;
-            font-size: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .pricing-card ul li::before {
-            content: '✓ ';
-            color: #38bdf8;
-            font-weight: 700;
-        }
-
-        .pricing-card .btn-pricing {
+        .quote-card .btn-quote {
             display: inline-block;
-            padding: 12px 40px;
+            padding: 14px 40px;
             background: linear-gradient(135deg, #38bdf8, #0284c7);
             color: #ffffff;
             border: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
         }
 
-        .pricing-card .btn-pricing:hover {
+        .quote-card .btn-quote:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
         }
 
-        /* ===== TESTIMONIALS / REVIEWS ===== */
+        /* ===== REVIEWS ===== */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1327,15 +1226,6 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 30px;
             }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .about-image {
-                height: 200px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1371,7 +1261,6 @@
             .services,
             .showcase,
             .coming-grid,
-            .pricing-grid,
             .reviews-grid {
                 padding: 0 20px 30px;
             }
@@ -1443,17 +1332,16 @@
                 padding: 0 20px 40px;
             }
 
-            .about-grid {
-                padding: 0 20px 40px;
+            .quote-section {
+                padding: 0 20px;
             }
 
-            .about-text .about-stats {
-                flex-wrap: wrap;
-                gap: 16px;
+            .quote-card {
+                padding: 28px 20px;
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
+            .quote-card h3 {
+                font-size: 22px;
             }
         }
 
@@ -1501,8 +1389,8 @@
                 height: 160px;
             }
 
-            .pricing-card {
-                padding: 24px 20px;
+            .quote-card h3 {
+                font-size: 18px;
             }
         }
     </style>
@@ -1525,10 +1413,8 @@
 
     <!-- ===== OVERLAY MENU ===== -->
     <div class="overlay-menu" id="overlayMenu">
-        <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#pricing">Pricing</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a href="#coming">Coming</a>
@@ -1691,51 +1577,19 @@
         </div>
     </div>
 
-    <!-- ===== PRICING ===== -->
-    <div class="section-title" id="pricing">
-        <h2>💰 Our <span>Packages</span></h2>
-        <p>Choose the plan that fits your needs.</p>
+    <!-- ===== CUSTOM QUOTE SECTION ===== -->
+    <div class="section-title">
+        <h2>💬 Get a <span>Custom Quote</span></h2>
+        <p>Every project is unique. Let's discuss your needs.</p>
     </div>
 
-    <div class="pricing-grid">
-        <div class="pricing-card">
-            <h3>Basic</h3>
-            <div class="price">$99 <span>/ project</span></div>
-            <ul>
-                <li>Logo Design</li>
-                <li>Basic Branding</li>
-                <li>Social Media Kit</li>
-                <li>1 Revision</li>
-                <li>3 Day Delivery</li>
-            </ul>
-            <a href="https://wa.me/250792377749" class="btn-pricing">Get Started</a>
-        </div>
-
-        <div class="pricing-card popular">
-            <div class="popular-badge">🔥 Most Popular</div>
-            <h3>Pro</h3>
-            <div class="price">$249 <span>/ project</span></div>
-            <ul>
-                <li>Full Brand Identity</li>
-                <li>Logo + Packaging Design</li>
-                <li>Website Design</li>
-                <li>Unlimited Revisions</li>
-                <li>2 Day Delivery</li>
-            </ul>
-            <a href="https://wa.me/250792377749" class="btn-pricing">Get Started</a>
-        </div>
-
-        <div class="pricing-card">
-            <h3>Premium</h3>
-            <div class="price">$499 <span>/ project</span></div>
-            <ul>
-                <li>Complete Branding Suite</li>
-                <li>Full Website Development</li>
-                <li>Mobile App Design</li>
-                <li>Unlimited Revisions</li>
-                <li>1 Day Delivery</li>
-            </ul>
-            <a href="https://wa.me/250792377749" class="btn-pricing">Get Started</a>
+    <div class="quote-section">
+        <div class="quote-card">
+            <div class="quote-icon">💎</div>
+            <h3>Pricing <span>Depends on Your Project</span></h3>
+            <p>We offer flexible pricing tailored to each client's specific needs. Whether you need a simple logo or a complete brand identity, we'll provide a fair quote based on the scope of work.</p>
+            <p style="font-size: 14px; color: #64748b; margin-top: -10px;">Contact us for a free consultation and quote.</p>
+            <a href="https://wa.me/250792377749" class="btn-quote" target="_blank">📩 Request a Quote</a>
         </div>
     </div>
 
@@ -1797,6 +1651,15 @@
         </div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
+                How much do your services cost?
+                <span class="arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+                Pricing depends on the project scope and complexity. Contact us for a free custom quote tailored to your specific needs.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
                 How long does a project take?
                 <span class="arrow">▼</span>
             </div>
@@ -1806,20 +1669,11 @@
         </div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
-                How much do your services cost?
-                <span class="arrow">▼</span>
-            </div>
-            <div class="faq-answer">
-                We offer flexible pricing starting from $99 for basic projects. Check our Pricing section for package details or contact us for a custom quote.
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
                 Do you offer revisions?
                 <span class="arrow">▼</span>
             </div>
             <div class="faq-answer">
-                Yes! We offer unlimited revisions on Pro and Premium packages. Basic packages include 1 revision. We want you to be 100% satisfied with our work.
+                Yes! We offer revisions to ensure you're 100% satisfied with our work. The number of revisions depends on the project package.
             </div>
         </div>
         <div class="faq-item">
@@ -1828,7 +1682,7 @@
                 <span class="arrow">▼</span>
             </div>
             <div class="faq-answer">
-                Simply click the "Get Started" button or message us on WhatsApp. We'll discuss your project and provide a quote within 24 hours.
+                Simply click the "Get Started" button or message us on WhatsApp. We'll discuss your project and provide a free consultation within 24 hours.
             </div>
         </div>
     </div>
@@ -1885,10 +1739,10 @@
             </div>
             <div class="footer-col">
                 <h5>Quick Links</h5>
-                <a href="#about">About Us</a>
                 <a href="#services">Services</a>
                 <a href="#portfolio">Portfolio</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#faq">FAQ</a>
             </div>
             <div class="footer-col">
                 <h5>Support</h5>
@@ -1986,7 +1840,6 @@
                 header.classList.remove('scrolled');
             }
 
-            // Back to top button
             if (window.scrollY > 500) {
                 backToTop.classList.add('show');
             } else {
@@ -2066,7 +1919,6 @@
             });
         }
 
-        // Auto-play slideshows
         setInterval(() => {
             Object.keys(slideData).forEach(key => {
                 const data = slideData[key];
@@ -2082,7 +1934,6 @@
             const answer = element.nextElementSibling;
             const isOpen = answer.classList.contains('open');
 
-            // Close all FAQs
             document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
             document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
 
@@ -2137,10 +1988,8 @@
         });
 
         // ===== REVIEW SYSTEM =====
-        // Load reviews from localStorage
         let reviews = JSON.parse(localStorage.getItem('inzoziReviews')) || [];
 
-        // Default reviews
         if (reviews.length === 0) {
             reviews = [
                 { name: 'Marcus T.', rating: 5, text: 'Amazing quality hoodies! Best streetwear brand in Rwanda. Highly recommend!', date: '2026-06-15' },
@@ -2159,7 +2008,6 @@
                 return;
             }
 
-            // Display reviews in reverse order (newest first)
             const sortedReviews = [...reviews].reverse();
             sortedReviews.forEach(review => {
                 const card = document.createElement('div');
@@ -2176,7 +2024,6 @@
 
         displayReviews();
 
-        // Submit review form
         document.getElementById('reviewForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -2200,7 +2047,6 @@
             localStorage.setItem('inzoziReviews', JSON.stringify(reviews));
             displayReviews();
 
-            // Reset form
             document.getElementById('reviewName').value = '';
             document.getElementById('reviewText').value = '';
             document.getElementById('reviewRating').value = 5;
@@ -2210,19 +2056,6 @@
             });
 
             alert('✅ Thank you for your review!');
-        });
-
-        // ===== SMOOTH SCROLL FOR NAV =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
         });
     </script>
 
